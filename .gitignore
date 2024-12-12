@@ -18,7 +18,7 @@ jspm_packages/
 __pycache__/
 *.py[cod]
 *.so
-
+rag_vector_store/
 # Vite build output
 dist/
 
