@@ -1,0 +1,112 @@
+[
+    {
+        "question": "[Question Text]",
+        "options": {
+            "a": "[Option A]",
+            "b": "[Option B]",
+            "c": "[Option C]",
+            "d": "[Option D]"
+        },
+        "correct_answer": "["
+    },
+    {
+        "question": "What keyword is used to declare an interface in Java?",
+        "options": {
+            "a": "class",
+            "b": "abstract",
+            "c": "interface",
+            "d": "final"
+        },
+        "correct_answer": "c"
+    },
+    {
+        "question": "Can an interface in Java contain method implementations?",
+        "options": {
+            "a": "Yes, they can contain full method implementations.",
+            "b": "No, they cannot contain method implementations, only method signatures.",
+            "c": "Yes, but only in Java 8 and later versions.",
+            "d": "Yes, they can contain private method implementations."
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "Starting with which version of Java were default methods allowed in interfaces?",
+        "options": {
+            "a": "Java 7",
+            "b": "Java 8",
+            "c": "Java 9",
+            "d": "Java 10"
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "What types of method implementations were added to interfaces in Java 9?",
+        "options": {
+            "a": "protected and abstract",
+            "b": "private and private static",
+            "c": "static and final",
+            "d": "public and default"
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "What happens if a class implements an interface but does not implement all of its non-default methods?",
+        "options": {
+            "a": "The class is automatically marked as abstract.",
+            "b": "The class is considered to not properly implement the interface.",
+            "c": "The class is allowed to provide its own implementations for the missing methods.",
+            "d": "The class must extend another class to implement the missing methods."
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "Which is the root class in the Java type system that all classes must extend?",
+        "options": {
+            "a": "java.lang.Object",
+            "b": "java.lang.Runtime",
+            "c": "java.lang.Throwable",
+            "d": "java.lang.String"
+        },
+        "correct_answer": "a"
+    },
+    {
+        "question": "How many types can a Java interface have as of the current version mentioned in the context?",
+        "options": {
+            "a": "Four",
+            "b": "Six",
+            "c": "Eight",
+            "d": "Ten"
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "Can a Java interface be instantiated directly?",
+        "options": {
+            "a": "Yes, interfaces can be instantiated just like classes.",
+            "b": "No, interfaces cannot be instantiated and must be implemented by a class.",
+            "c": "Yes, but only through anonymous classes.",
+            "d": "No, but it can be used as a type for object references."
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "What is the main benefit of using interfaces in Java?",
+        "options": {
+            "a": "They provide a mechanism for multiple inheritance.",
+            "b": "They allow for the creation of anonymous classes.",
+            "c": "They enable dynamic method invocation.",
+            "d": "They facilitate the implementation of the singleton pattern."
+        },
+        "correct_answer": "a"
+    },
+    {
+        "question": "What must a class that implements an interface do?",
+        "options": {
+            "a": "Implement all default methods described in the interface.",
+            "b": "Implement all abstract methods described in the interface, or be abstract itself.",
+            "c": "Override every interface method with a lambda expression.",
+            "d": "Provide an implementation for only the static methods of the interface."
+        },
+        "correct_answer": "b"
+    }
+]

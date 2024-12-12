@@ -1,0 +1,52 @@
+[
+    {
+        "question": "Can an interface in Java contain method implementations?",
+        "options": {
+            "a": "Yes, they can contain full method implementations.",
+            "b": "No, they cannot contain method implementations, only method signatures.",
+            "c": "Yes, but only in Java 8 and later versions.",
+            "d": "Yes, they can contain private method implementations."
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "What types of method implementations were added to interfaces in Java 9?",
+        "options": {
+            "a": "protected and abstract",
+            "b": "private and private static",
+            "c": "static and final",
+            "d": "public and default"
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "How many types can a Java interface have as of the current version mentioned in the context?",
+        "options": {
+            "a": "Four",
+            "b": "Six",
+            "c": "Eight",
+            "d": "Ten"
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "What happens if a class implements an interface but does not implement all of its non-default methods?",
+        "options": {
+            "a": "The class is automatically marked as abstract.",
+            "b": "The class is considered to not properly implement the interface.",
+            "c": "The class is allowed to provide its own implementations for the missing methods.",
+            "d": "The class must extend another class to implement the missing methods."
+        },
+        "correct_answer": "b"
+    },
+    {
+        "question": "What is the main benefit of using interfaces in Java?",
+        "options": {
+            "a": "They provide a mechanism for multiple inheritance.",
+            "b": "They allow for the creation of anonymous classes.",
+            "c": "They enable dynamic method invocation.",
+            "d": "They facilitate the implementation of the singleton pattern."
+        },
+        "correct_answer": "a"
+    }
+]
