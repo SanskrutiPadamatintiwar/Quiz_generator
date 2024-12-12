@@ -1,0 +1,91 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Dependency directories
+node_modules/
+jspm_packages/
+__pycache__/
+*.py[cod]
+*.so
+
+# Vite build output
+dist/
+
+# FastAPI virtual environments
+env/
+venv/
+ENV/
+.venv/
+.ENV/
+
+# FastAPI migrations and databases
+migrations/
+*.sqlite3
+db.sqlite3
+
+# Temporary files and directories
+tmp/
+temp/
+*.swp
+*.swo
+*.bak
+*.tmp
+*.temp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-workspace
+
+# Coverage
+coverage/
+
+# Test files
+*.spec.js
+*.spec.ts
+*.test.js
+*.test.ts
+*.pytest_cache/
+htmlcov/
+
+# Ignore Python build artifacts
+*.egg-info/
+*.eggs/
+build/
+dist/
+
+# Ignore compiled code
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore frontend and backend artifacts
+frontend/dist/
+backend/__pycache__/
+
+# Ignore build artifacts
+build/
+out/
