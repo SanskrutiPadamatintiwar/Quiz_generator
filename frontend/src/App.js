@@ -25,7 +25,7 @@ function App() {
 
   return (
     // <div className="bg-no-repeat bg-cover bg-center min-h-screen relative flex flex-col " style={{ backgroundImage: `url(${qimg})` }}>
-    <div className="bg-gradient-to-br from-slate-950 via-slate-800 to-slate-950 min-h-screen flex flex-col relative">
+    <div className="bg-gradient-to-br from-slate-950 via-slate-800 to-slate-950 min-h-screen flex flex-col relative z-20">
       {isLoggedIn && <Navbar />}
       {/* {isLoggedIn && (
         <button 

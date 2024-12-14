@@ -140,7 +140,7 @@ const QuizPage = () => {
             onChange={(e) => setNumQuestions(e.target.value)}
             className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-600"
             min="1"
-            max="20"
+            max="15"
             required
           />
         </div>
