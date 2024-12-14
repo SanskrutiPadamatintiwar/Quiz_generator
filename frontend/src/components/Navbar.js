@@ -1,19 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { HomeIcon, BookOpenIcon, InformationCircleIcon, PhoneIcon } from '@heroicons/react/outline';
 import navImg from '../navImg.jpg';
 
 const Navbar = () => {
+  const isLoggedIn = (localStorage.getItem("token") != null);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    alert("Logged out successfully");
+    navigate('/login');
+  };
+
   return (
     <nav
-      className="flex justify-between items-center bg-transparent backdrop-blur-md fixed inset-x-0 h-16 md:px-5 md:py-4 bg-gradient-to-r  "
+      className="flex justify-between items-center bg-transparent backdrop-blur-lg fixed inset-x-0 h-16 md:px-5 md:py-4 bg-gradient-to-r"
     >
-    {/* <nav
-      className="flex justify-between items-center p-6 md:p-8 bg-gradient-to-r from-sky-900 to-sky-700 shadow-xl hover:from-sky-800 hover:to-sky-600 background-repeat "
-       style={{ backgroundImage: `url(${navImg})` }} 
-    > */}
-    
-      
       <h1 className="text-white font-bold text-3xl hover:text-sky-300 transition duration-300 cursor-pointer">
         QuizApp
       </h1>
@@ -22,11 +25,10 @@ const Navbar = () => {
           <HomeIcon className="h-4 w-6 mr-0" />
           Home
         </Link>
-        <Link className="flex items-center hover:text-sky-300 transition duration-300 cursor-pointer text-sm" to="/quiz">
+        {/* <Link className="flex items-center hover:text-sky-300 transition duration-300 cursor-pointer text-sm" to="/quiz">
           <BookOpenIcon className="h-4 w-6 mr-0" />
-          
           Quiz
-        </Link>
+        </Link> */}
         <Link className="flex items-center hover:text-sky-300 transition duration-300 cursor-pointer text-sm" to="/about">
           <InformationCircleIcon className="h-4 w-6 mr-0" />
           About
@@ -35,6 +37,14 @@ const Navbar = () => {
           <PhoneIcon className="h-4 w-6 mr-0" />
           Contact
         </li>
+        {isLoggedIn && (
+          <button 
+            onClick={handleLogout} 
+            className="bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+          >
+            Logout
+          </button>
+        )}
       </ul>
     </nav>
   );

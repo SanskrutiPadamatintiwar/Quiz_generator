@@ -2,7 +2,7 @@ import React from 'react';
 import navImg from '../navImg.jpg'; // adjust path if needed
 import { HomeIcon } from '@heroicons/react/solid';
 import qimg from '../qImg.jpg';
-
+import {Link} from 'react-router-dom';
 // 
 const Home = () => {
   return (
@@ -21,7 +21,11 @@ const Home = () => {
         Type in any topic you're curious about, and dive into a quiz instantly. Quick, fun, and a great way to learn something new. Ready to attempt? Jump into your first quiz now!
         </p>
         <button className="mt-6 px-8 py-2 bg-gradient-to-r text-gray-900 from-teal-100 via-purple-200 to-blue-300 hover:bg-sky-950 rounded-full  font-semibold transition duration-300">
+        <Link  to="/quiz">
+          {/* <BookOpenIcon className="h-4 w-6 mr-0" /> */}
           Get Started
+        </Link>
+          
         </button>
       </div>
     </div>

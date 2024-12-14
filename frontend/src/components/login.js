@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
-import { login } from '../communicators/apicommunicators';
 import { useNavigate } from 'react-router-dom';
-
+import { login } from '../communicators/apicommunicators';
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +8,8 @@ const Login = () => {
     password: ''
   });
   const [isSignup, setIsSignup] = useState(false);
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -19,27 +18,33 @@ const navigate = useNavigate();
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isSignup) {
-      console.log('Signup Data:', formData);
-    } else {
-
-      console.log('Login Data:', formData);
-      const data=login(formData);
-      alert("Logged in successfully");
-      navigate('/');
+    if (!isSignup) {
+      try {
+        const response = await login(formData);
+        if (response?.status === 200) {
+          localStorage.setItem("token", response.data.data);
+          alert("Logged in successfully");
+          navigate('/');
+        } else {
+          alert(response?.data?.message || "Login failed. Please try again.");
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert("An error occurred during login.");
+      }
     }
   };
 
   const toggleForm = () => {
-    setIsSignup(!isSignup);
+    navigate('/signup');
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-2xl font-bold mb-6 text-center">{isSignup ? 'Sign Up' : 'Log In'}</h2>
+    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-950 via-slate-800 to-slate-950">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">{isSignup ? 'Sign Up' : 'Log In'}</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email Address</label>
@@ -49,7 +54,7 @@ const navigate = useNavigate();
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="Enter your email"
               required
             />
@@ -62,21 +67,21 @@ const navigate = useNavigate();
               name="password"
               value={formData.password}
               onChange={handleChange}
-              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
               placeholder="Enter your password"
               required
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-indigo-600 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            className="w-full bg-gradient-to-tr from-slate-950 via-slate-800 to-slate-950 text-white py-2 px-4 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           >
             {isSignup ? 'Sign Up' : 'Log In'}
           </button>
         </form>
         <p className="mt-4 text-sm text-center text-gray-600">
           {isSignup ? 'Already have an account?' : "Don't have an account?"} 
-          <button onClick={toggleForm} className="text-indigo-500 hover:underline">
+          <button onClick={toggleForm} className="text-slate-500 hover:underline">
             {isSignup ? 'Log in' : 'Sign up'}
           </button>
         </p>
