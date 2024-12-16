@@ -129,20 +129,27 @@ const QuestionPage = () => {
           )}
         </div>
         <div className="flex justify-between mt-4">
-          <button
-            onClick={() => setCurrentQuestionIndex((prev) => Math.max(0, prev - 1))}
-            className="bg-sky-700 hover:bg-sky-800 text-white py-2 px-6 rounded-lg transition duration-300"
-            disabled={currentQuestionIndex === 0}
-          >
-            Previous
-          </button>
+          {currentQuestionIndex > 0 && (
+            <button
+              onClick={() => setCurrentQuestionIndex((prev) => Math.max(0, prev - 1))}
+              className="bg-sky-700 hover:bg-sky-800 text-white py-2 px-6 rounded-lg transition duration-300"
+            >
+              Previous
+            </button>
+          )}
           <button
             onClick={handleAnswerSubmit}
-            className="bg-sky-700 hover:bg-sky-800 text-white py-2 px-6 rounded-lg transition duration-300"
+            disabled={!selectedAnswer} // Disable the button if no answer is selected
+            className={`py-2 px-6 rounded-lg transition duration-300 ${
+              selectedAnswer
+                ? "bg-sky-700 hover:bg-sky-800 text-white"
+                : "bg-gray-400 text-gray-700 cursor-not-allowed"
+            }`}
           >
-            {currentQuestionIndex === questions.length - 1 ? 'Submit' : 'Next Question'}
+            {currentQuestionIndex === questions.length - 1 ? "Submit" : "Next Question"}
           </button>
         </div>
+
       </div>
     </div>
   );
