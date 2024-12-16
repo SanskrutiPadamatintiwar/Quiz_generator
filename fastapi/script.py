@@ -12,6 +12,12 @@ import requests
 import json
 import random
 import re
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+
+app = Flask(__name__)
+CORS(app)  # Enable CORS for all routes
+
 
 # Hugging Face API Config
 API_TOKEN = "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"  # Replace with your Hugging Face API token
@@ -27,56 +33,6 @@ embedding_model = HuggingFaceEmbeddings(
 
 
 tokenizer = AutoTokenizer.from_pretrained(EMBEDDING_MODEL_NAME)
-
-
-def get_content_from_user():
-    """
-    Fetch content from Wikipedia or a PDF based on user choice.
-    Returns the file path containing the extracted content and the topic.
-    """
-    choice = input("Would you like to (1) Enter a topic to search on Wikipedia or (2) Upload a PDF file? Enter 1 or 2: ").strip()
-
-    if choice == "1":
-        topic = input("Enter the Wikipedia topic: ").strip()
-        try:
-            wiki = wikipedia.page(topic)
-            wiki_text = wiki.content
-            with open('wiki_txt.txt', 'w', encoding='utf-8') as f:
-                f.write(wiki_text)
-            print("Wikipedia content saved successfully.")
-            return 'wiki_txt.txt', topic
-
-        except wikipedia.exceptions.PageError:
-            print(f"The page '{topic}' does not exist. Try a different title.")
-            return None, None
-        except wikipedia.exceptions.DisambiguationError as e:
-            print(f"The title '{topic}' is ambiguous. Options are: {e.options}")
-            return None, None
-        except Exception as e:
-            print(f"An error occurred: {e}")
-            return None, None
-
-    elif choice == "2":
-        file_path = input("Enter the path to your PDF file: ").strip()
-        if os.path.isfile(file_path) and file_path.endswith('.pdf'):
-            try:
-                with open(file_path, 'rb') as file:
-                    pdf_reader = PyPDF2.PdfReader(file)
-                    pdf_text = "".join([page.extract_text() for page in pdf_reader.pages])
-                with open('pdf_text.txt', 'w', encoding='utf-8') as f:
-                    f.write(pdf_text)
-                print("PDF content extracted and saved successfully.")
-                topic = input("Enter a topic from the PDF content: ").strip()
-                return 'pdf_text.txt', topic
-            except Exception as e:
-                print(f"Failed to read the PDF file: {e}")
-                return None, None
-        else:
-            print("Invalid file path or file type. Please upload a PDF file.")
-            return None, None
-    else:
-        print("Invalid choice. Please enter 1 or 2.")
-        return None, None
 
 
 def split_documents(chunk_size, knowledge_base):
@@ -128,7 +84,12 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
     # Define maximum token limits
     max_total_tokens = 1024
     # max_total_tokens = 2048
-    max_new_tokens = 750 # Adjusted from 1024 to 250
+    if question_type=="Multiple Choice Questions":
+        max_new_tokens=1000
+    elif question_type == "Fill in the Blanks":
+        max_new_tokens = 1000 # Adjusted from 1024 to 250
+    elif question_type == "True/False":
+        max_new_tokens = 500
 
     # Generate the prompt template without the context
     if question_type == "Multiple Choice Questions":
@@ -170,7 +131,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
 
     # Calculate allowed context length
     # allowed_context_length = max_total_tokens - prompt_length - max_new_tokens
-    allowed_context_length = 250
+    allowed_context_length = 500
     # allowed_context_length = 500
     # Tokenize and truncate the context if necessary
     context_tokens = tokenizer.encode(context)
@@ -208,7 +169,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
         # print(response)
         # print("\n\n\n\nresponnse\n\n\n\n")
         # print(response.text)
-        # print("\n\n\n\nresponnse\n\n\n\n")
+        print("\n\n\n\nresponnse\n\n\n\n")
         if response.status_code == 200:
             result = response.json()
             # print("Raw API Response:", result)  # Debug print
@@ -241,6 +202,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
                 matches = mcq_pattern.findall(generated_text)
                 for match in matches:
                     formatted_questions.append({
+                        "type":"multiple-choice",
                         "question": match[0].strip(),
                         "options": {
                             "a": match[1].strip(),
@@ -248,7 +210,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
                             "c": match[3].strip(),
                             "d": match[4].strip()
                         },
-                        "correct_answer": match[5][0].strip()
+                        "correct_answer": match[5].strip()
                     })
             
             elif question_type == "Fill in the Blanks":
@@ -257,6 +219,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
                 
                 for match in matches:
                     formatted_questions.append({
+                        "type":"fill-in-the-blank",
                         "question": match[0].strip(),
                         "correct_answer": match[1].strip()
                     })
@@ -267,6 +230,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
                 
                 for match in matches:
                     formatted_questions.append({
+                        "type":"true/false",
                         "question": match[0].strip(),
                         "correct_answer": match[1].strip()
                     })
@@ -276,6 +240,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
                 with open('questions.json', 'w') as f:
                     json.dump(formatted_questions, f, ensure_ascii=False, indent=4)
                 print(f"Generated {len(formatted_questions)} questions.")
+                print(formatted_questions)
                 return formatted_questions
             else:
                 print("No valid questions extracted.")
@@ -300,72 +265,99 @@ def display_quiz(num_questions):
     # print(selected_questions)
     with open('selected_questions.json', 'w') as f:
         json.dump(selected_questions, f, ensure_ascii=False, indent=4)
-    score = 0
-    total_questions = len(selected_questions)
-    
-    for idx, question in enumerate(selected_questions):
-        print(f"\nQ{idx + 1}: {question['question']}")
-        if 'options' in question:
-            for option, text in question['options'].items():
-                print(f"  {option}. {text}")
-        
-        answer = input("Your answer: ").strip().lower()
-        
-        correct_answer = question['correct_answer'].strip().lower()
-        if answer == correct_answer:
-            score += 1
-            print("Correct!")
-        else:
-            print(f"Wrong! The correct answer was: {correct_answer}")
+    # score = 0
+    # total_questions = len(selected_questions)
+    print(selected_questions)
 
-        print(f"Current Score: {score}/{idx + 1}")
 
-    print(f"\nFinal Score: {score}/{total_questions}")
 
+    return selected_questions
+
+@app.route('/start-quiz', methods=['POST'])
 def main():
+    # Clear old files
     for filename in ['wiki_txt.txt', 'pdf_text.txt', 'questions.json']:
         if os.path.exists(filename):
             open(filename, 'w').close()
 
-    content_file, topic = get_content_from_user()
-    # print(f"Content file: {content_file}, Topic: {topic}")  # Debug print
+    # Parse user input from frontend
+    question_type_choice = request.form.get('questionType')  # Get the choice as a string
+    num_questions = request.form.get('numQuestions')  # Number of questions
+    topic = request.form.get('topic')
+    file = request.files.get('file')
 
-    if content_file and topic:
+    # Validate input
+    if not question_type_choice or question_type_choice not in {"1", "2", "3"}:
+        return jsonify({"message": "Invalid question type choice. Please choose 1, 2, or 3.", "success": False}), 400
+
+    if not num_questions:
+        return jsonify({"message": "Number of questions is required.", "success": False}), 400
+
+    if (not topic and not file) or (topic and file):
+        return jsonify({"message": "Provide either a topic or a file, but not both.", "success": False}), 400
+
+    # Map the question type choice
+    question_type = {
+        "1": "Multiple Choice Questions",
+        "2": "Fill in the Blanks",
+        "3": "True/False"
+    }.get(question_type_choice)
+    
+    content_file = None
+
+    if topic:
+        # Fetch content from Wikipedia
+        try:
+            wiki = wikipedia.page(topic)
+            wiki_text = wiki.content
+            with open('wiki_txt.txt', 'w', encoding='utf-8') as f:
+                f.write(wiki_text)
+            print("Wikipedia content saved successfully.")
+            content_file = 'wiki_txt.txt'
+        except wikipedia.exceptions.PageError:
+            return jsonify({"success": False, "message": f"The page '{topic}' does not exist."}), 400
+        except wikipedia.exceptions.DisambiguationError as e:
+            return jsonify({"success": False, "message": f"The title '{topic}' is ambiguous. Options are: {e.options}"}), 400
+        except Exception as e:
+            return jsonify({"success": False, "message": f"An error occurred: {e}"}), 500
+
+    elif file:
+        # Extract content from the uploaded PDF
+        try:
+            if file.filename.endswith('.pdf'):
+                file.save('uploaded.pdf')
+                with open('uploaded.pdf', 'rb') as pdf_file:
+                    pdf_reader = PyPDF2.PdfReader(pdf_file)
+                    pdf_text = "".join([page.extract_text() for page in pdf_reader.pages])
+                with open('pdf_text.txt', 'w', encoding='utf-8') as f:
+                    f.write(pdf_text)
+                print("PDF content extracted and saved successfully.")
+                content_file = 'pdf_text.txt'
+            else:
+                return jsonify({"success": False, "message": "Invalid file type. Please upload a PDF."}), 400
+        except Exception as e:
+            return jsonify({"success": False, "message": f"Failed to read the PDF file: {e}"}), 500
+    else:
+        return jsonify({"success": False, "message": "Invalid choice or missing data."}), 400
+
+    if content_file:
         print("Content loaded successfully. Preparing dataset for RAG implementation...")
         vector_store = prepare_rag_dataset(content_file)
-        # print(f"Vector store: {vector_store}")  # Debug print
-
-        # Save the vector store
         vector_store.save_local("rag_vector_store")
-        print("Dataset prepared and saved for RAG implementation.")
 
-        # Use the entire context to generate questions
+        # Generate questions based on context
         combined_context = " ".join([doc.page_content for doc in vector_store.similarity_search("", k=5)])
-        # print(f"Combined context: {combined_context}")  # Debug print
-
-        question_type_choice = input("Enter the type of question to generate (1 for mcq, 2 for fill_in_the_blank, 3 for true_false): ").strip()
-        print(f"Question type choice: {question_type_choice}")  # Debug print
-        
-        if question_type_choice == "1":
-            question_type = "Multiple Choice Questions"
-        elif question_type_choice == "2":
-            question_type = "Fill in the Blanks"
-        elif question_type_choice == "3":
-            question_type = "True/False"
-        else:
-            print("Invalid choice. Please enter 1, 2, or 3.")
-            return
-
-        # Generate questions
         generated_questions = generate_questions_with_huggingface_api(combined_context, question_type, topic)
-        # print(f"Generated questions: {generated_questions}")  # Debug print
-        if generated_questions:
-            num_questions_to_generate = int(input("How many questions would you like to answer? ").strip())
-            print(f"Number of questions to generate: {num_questions_to_generate}")  # Debug print
-            print("\nStarting the Quiz...\n")
-            display_quiz(num_questions_to_generate)
-    else:
-        print("Failed to get valid content. Please try again.")
+        questions=display_quiz(int(num_questions))
+        print(f"Generated questions: {generated_questions}")
+        if questions:
+            return jsonify({"success": True, "questions":questions}), 200
+        else:
+            return jsonify({"success": False, "message": "Failed to generate questions."}), 500
+
+    return jsonify({"success": False, "message": "Failed to process the content."}), 500
+
+
 
 if __name__ == '__main__':
-    main()
+    app.run(port=5000)
