@@ -71,7 +71,7 @@ const QuizPage = () => {
   };
 
   return (
-    <div className="h-screen bg-cover flex flex-col items-start justify-center px-10">
+    <div className="h-screen bg-cover flex items-center justify-center px-10">
       <form
         onSubmit={handleSubmit}
         className="w-3/5 p-8 bg-opacity-90 bg-white rounded-lg shadow-lg"
