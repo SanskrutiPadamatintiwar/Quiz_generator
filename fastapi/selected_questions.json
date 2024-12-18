@@ -1,0 +1,27 @@
+[
+    {
+        "type": "fill-in-the-blank",
+        "question": "This numerical method combines deep learning with _ to solve high-dimensional problems in financial mathematics.",
+        "correct_answer": "backward stochastic differential equation"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "_ have been successfully applied to financial fraud detection, tax evasion detection, and anti-money laundering.",
+        "correct_answer": "deep learning"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "Deep learning has been successfully applied to inverse problems such as _ and _ in image restoration.",
+        "correct_answer": "denoising, super-resolution"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "The development has implications for the future of scientific discovery and the integration of _ in material science research.",
+        "correct_answer": "ai"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "This method does not require the often expensive mesh generation that conventional cfd methods rely on.",
+        "correct_answer": "physics informed neural networks"
+    }
+]

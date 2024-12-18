@@ -28,6 +28,10 @@ prompt.txt/
 
 # Vite build output
 dist/
+prompt.txt/
+questions.json/
+selected_questions.json/
+
 
 # FastAPI virtual environments
 env/
@@ -35,7 +39,7 @@ venv/
 ENV/
 .venv/
 .ENV/
-
+rag-env/
 # FastAPI migrations and databases
 migrations/
 *.sqlite3

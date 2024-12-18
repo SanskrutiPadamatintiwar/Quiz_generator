@@ -1,0 +1,57 @@
+[
+    {
+        "type": "fill-in-the-blank",
+        "question": "[Question with blank]",
+        "correct_answer": "[Correct word/phrase]"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "_ have been successfully applied to financial fraud detection, tax evasion detection, and anti-money laundering.",
+        "correct_answer": "deep learning"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "The ai system known as _ has contributed to materials science by discovering over 2 million new materials.",
+        "correct_answer": "gnome"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "This method does not require the often expensive mesh generation that conventional cfd methods rely on.",
+        "correct_answer": "physics informed neural networks"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "This numerical method combines deep learning with _ to solve high-dimensional problems in financial mathematics.",
+        "correct_answer": "backward stochastic differential equation"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "_ are collected during the internet advertising cycle and can form the basis of machine learning to improve ad selection.",
+        "correct_answer": "data"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "Deep learning has been successfully applied to inverse problems such as _ and _ in image restoration.",
+        "correct_answer": "denoising, super-resolution"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "The development has implications for the future of scientific discovery and the integration of _ in material science research.",
+        "correct_answer": "ai"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "This method is particularly useful for solving _ problems in financial mathematics.",
+        "correct_answer": "high-dimensional"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "Using this method, scientists can focus more on the design and analysis of _.",
+        "correct_answer": "unique compounds"
+    },
+    {
+        "type": "fill-in-the-blank",
+        "question": "In November 2023, researchers at google deepmind and Lawrence Berkeley National Laboratory announced they had developed an _ system.",
+        "correct_answer": "ai"
+    }
+]
