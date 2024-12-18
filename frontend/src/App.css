@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+.response-box {
+  max-height: 300px; /* Reduce the height to make it smaller */
+  width: 70%; /* Adjust the width of the box */
+  overflow-y: auto; /* Make it scrollable vertically */
+  border: 1px solid #ddd; /* Light gray border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 10px; /* Inner spacing */
+  background-color: #f9f9f9; /* Slightly lighter background for contrast */
+  margin: 0 auto; /* Center the box */
+}

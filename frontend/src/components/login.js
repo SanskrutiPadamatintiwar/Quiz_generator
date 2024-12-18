@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login } from '../communicators/apicommunicators';
+import backgroundImage from '../assets/image.jpg'; // Update the path to match your image location
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -42,8 +43,16 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-950 via-slate-800 to-slate-950">
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md">
+    <div
+      className="flex items-center justify-center min-h-screen"
+      style={{
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+      }}
+    >
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md bg-opacity-80">
+        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">QUIZ APP</h1>
         <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">{isSignup ? 'Sign Up' : 'Log In'}</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
