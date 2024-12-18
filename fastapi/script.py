@@ -85,7 +85,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
     max_total_tokens = 1024
     # max_total_tokens = 2048
     if question_type=="Multiple Choice Questions":
-        max_new_tokens=1000
+        max_new_tokens=1024
     elif question_type == "Fill in the Blanks":
         max_new_tokens = 1000 # Adjusted from 1024 to 250
     elif question_type == "True/False":
@@ -169,7 +169,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
         # print(response)
         # print("\n\n\n\nresponnse\n\n\n\n")
         # print(response.text)
-        print("\n\n\n\nresponnse\n\n\n\n")
+        # print("\n\n\n\nresponnse\n\n\n\n")
         if response.status_code == 200:
             result = response.json()
             # print("Raw API Response:", result)  # Debug print
@@ -210,7 +210,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
                             "c": match[3].strip(),
                             "d": match[4].strip()
                         },
-                        "correct_answer": match[5].strip()
+                        "correct_answer": match[5][3:].strip()
                     })
             
             elif question_type == "Fill in the Blanks":
@@ -234,6 +234,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
                         "question": match[0].strip(),
                         "correct_answer": match[1].strip()
                     })
+            # print(formatted_questions)
 
             # Save to JSON if questions are found
             if formatted_questions:

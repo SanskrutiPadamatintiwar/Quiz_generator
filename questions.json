@@ -1,5 +1,6 @@
 [
     {
+        "type": "multiple-choice",
         "question": "[Question Text]",
         "options": {
             "a": "[Option A]",
@@ -7,106 +8,94 @@
             "c": "[Option C]",
             "d": "[Option D]"
         },
-        "correct_answer": "["
+        "correct_answer": "b/c/d]"
     },
     {
-        "question": "What keyword is used to declare an interface in Java?",
+        "type": "multiple-choice",
+        "question": "What is an interface in Java used to declare?",
         "options": {
-            "a": "class",
-            "b": "abstract",
-            "c": "interface",
-            "d": "final"
+            "a": "A specific class implementation",
+            "b": "A behavior that classes must implement",
+            "c": "The main method of a program",
+            "d": "A default method implementation"
         },
-        "correct_answer": "c"
+        "correct_answer": "A behavior that classes must implement"
     },
     {
-        "question": "Can an interface in Java contain method implementations?",
+        "type": "multiple-choice",
+        "question": "In Java, can interfaces be instantiated?",
         "options": {
-            "a": "Yes, they can contain full method implementations.",
-            "b": "No, they cannot contain method implementations, only method signatures.",
-            "c": "Yes, but only in Java 8 and later versions.",
-            "d": "Yes, they can contain private method implementations."
+            "a": "Yes, they can be instantiated like classes",
+            "b": "No, they can only be implemented by classes",
+            "c": "Yes, but only in Java 8 and above",
+            "d": "No, but they can have instance variables"
         },
-        "correct_answer": "b"
+        "correct_answer": "No, they can only be implemented by classes"
     },
     {
-        "question": "Starting with which version of Java were default methods allowed in interfaces?",
+        "type": "multiple-choice",
+        "question": "Which version of Java introduced default methods in interfaces?",
         "options": {
             "a": "Java 7",
             "b": "Java 8",
             "c": "Java 9",
             "d": "Java 10"
         },
-        "correct_answer": "b"
+        "correct_answer": "Java 8"
     },
     {
-        "question": "What types of method implementations were added to interfaces in Java 9?",
+        "type": "multiple-choice",
+        "question": "How many types of methods can a Java interface have as of the latest versions mentioned in the context?",
         "options": {
-            "a": "protected and abstract",
-            "b": "private and private static",
-            "c": "static and final",
-            "d": "public and default"
+            "a": "Up to six",
+            "b": "Exactly two",
+            "c": "Unlimited",
+            "d": "Only abstract methods"
         },
-        "correct_answer": "b"
+        "correct_answer": "Up to six"
     },
     {
-        "question": "What happens if a class implements an interface but does not implement all of its non-default methods?",
+        "type": "multiple-choice",
+        "question": "What is a key benefit of using interfaces in Java?",
         "options": {
-            "a": "The class is automatically marked as abstract.",
-            "b": "The class is considered to not properly implement the interface.",
-            "c": "The class is allowed to provide its own implementations for the missing methods.",
-            "d": "The class must extend another class to implement the missing methods."
+            "a": "They allow for multiple inheritance of classes",
+            "b": "They can contain method bodies",
+            "c": "They simulate multiple inheritance",
+            "d": "They define a default implementation"
         },
-        "correct_answer": "b"
+        "correct_answer": "They simulate multiple inheritance"
     },
     {
-        "question": "Which is the root class in the Java type system that all classes must extend?",
+        "type": "multiple-choice",
+        "question": "In Java, what must a class that implements an interface do?",
         "options": {
-            "a": "java.lang.Object",
-            "b": "java.lang.Runtime",
-            "c": "java.lang.Throwable",
-            "d": "java.lang.String"
+            "a": "Implement all default methods",
+            "b": "Implement all non-default methods",
+            "c": "Override all interface methods with its own methods",
+            "d": "Provide an implementation for all methods, whether default or not"
         },
-        "correct_answer": "a"
+        "correct_answer": "Implement all non-default methods"
     },
     {
-        "question": "How many types can a Java interface have as of the current version mentioned in the context?",
+        "type": "multiple-choice",
+        "question": "What kind of object references in Java may be specified to be of an interface type?",
         "options": {
-            "a": "Four",
-            "b": "Six",
-            "c": "Eight",
-            "d": "Ten"
+            "a": "Only concrete class instances",
+            "b": "Only abstract class instances",
+            "c": "Only references to null or implementing objects",
+            "d": "Only references to the java.lang.Object class"
         },
-        "correct_answer": "b"
+        "correct_answer": "Only references to null or implementing objects"
     },
     {
-        "question": "Can a Java interface be instantiated directly?",
+        "type": "multiple-choice",
+        "question": "If a Java object implements the `Comparable` interface, what can be said about it?",
         "options": {
-            "a": "Yes, interfaces can be instantiated just like classes.",
-            "b": "No, interfaces cannot be instantiated and must be implemented by a class.",
-            "c": "Yes, but only through anonymous classes.",
-            "d": "No, but it can be used as a type for object references."
+            "a": "It can only be sorted by its own class",
+            "b": "It can be sorted in some way",
+            "c": "It has a main method",
+            "d": "It must be a primitive type"
         },
-        "correct_answer": "b"
-    },
-    {
-        "question": "What is the main benefit of using interfaces in Java?",
-        "options": {
-            "a": "They provide a mechanism for multiple inheritance.",
-            "b": "They allow for the creation of anonymous classes.",
-            "c": "They enable dynamic method invocation.",
-            "d": "They facilitate the implementation of the singleton pattern."
-        },
-        "correct_answer": "a"
-    },
-    {
-        "question": "What must a class that implements an interface do?",
-        "options": {
-            "a": "Implement all default methods described in the interface.",
-            "b": "Implement all abstract methods described in the interface, or be abstract itself.",
-            "c": "Override every interface method with a lambda expression.",
-            "d": "Provide an implementation for only the static methods of the interface."
-        },
-        "correct_answer": "b"
+        "correct_answer": "It can be sorted in some way"
     }
 ]
