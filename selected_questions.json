@@ -1,25 +1,36 @@
 [
     {
         "type": "multiple-choice",
-        "question": "In Java, can interfaces be instantiated?",
+        "question": "Which version of Java introduced default methods in interfaces?",
         "options": {
-            "a": "Yes, they can be instantiated like classes",
-            "b": "No, they can only be implemented by classes",
-            "c": "Yes, but only in Java 8 and above",
-            "d": "No, but they can have instance variables"
+            "a": "Java 7",
+            "b": "Java 8",
+            "c": "Java 9",
+            "d": "Java 10"
         },
-        "correct_answer": "No, they can only be implemented by classes"
+        "correct_answer": "Java 8"
     },
     {
         "type": "multiple-choice",
-        "question": "In Java, what must a class that implements an interface do?",
+        "question": "What kind of object references in Java may be specified to be of an interface type?",
         "options": {
-            "a": "Implement all default methods",
-            "b": "Implement all non-default methods",
-            "c": "Override all interface methods with its own methods",
-            "d": "Provide an implementation for all methods, whether default or not"
+            "a": "Only concrete class instances",
+            "b": "Only abstract class instances",
+            "c": "Only references to null or implementing objects",
+            "d": "Only references to the java.lang.Object class"
         },
-        "correct_answer": "Implement all non-default methods"
+        "correct_answer": "Only references to null or implementing objects"
+    },
+    {
+        "type": "multiple-choice",
+        "question": "What is an interface in Java used to declare?",
+        "options": {
+            "a": "A specific class implementation",
+            "b": "A behavior that classes must implement",
+            "c": "The main method of a program",
+            "d": "A default method implementation"
+        },
+        "correct_answer": "A behavior that classes must implement"
     },
     {
         "type": "multiple-choice",
@@ -31,17 +42,6 @@
             "d": "It must be a primitive type"
         },
         "correct_answer": "It can be sorted in some way"
-    },
-    {
-        "type": "multiple-choice",
-        "question": "Which version of Java introduced default methods in interfaces?",
-        "options": {
-            "a": "Java 7",
-            "b": "Java 8",
-            "c": "Java 9",
-            "d": "Java 10"
-        },
-        "correct_answer": "Java 8"
     },
     {
         "type": "multiple-choice",
