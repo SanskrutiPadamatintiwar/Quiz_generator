@@ -28,7 +28,14 @@ function App() {
     // <div className="bg-no-repeat bg-cover bg-center min-h-screen relative flex flex-col " style={{ backgroundImage: `url(${qimg})` }}>
     <div className="bg-gradient-to-br from-slate-950 via-slate-800 to-slate-950 min-h-screen flex flex-col relative z-20">
       {isLoggedIn && <Navbar />}
-      
+      {/* {isLoggedIn && (
+        <button 
+          onClick={handleLogout} 
+          className="absolute top-4 right-20 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+        >
+          Logout
+        </button> */}
+      {/* )} */}
       <Routes>
         {isLoggedIn ? (
           <>

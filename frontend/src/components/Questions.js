@@ -59,7 +59,7 @@ const QuestionPage = () => {
             </button>
             <button
               onClick={() => navigate('/response-sheet', { state: { userAnswers } })}
-              className="px-4 py-2 bg-indigo-600 text-white rounded-lg"
+              className="px-4 py-2 bg-sky-700 text-white rounded-lg"
             >
               View Response Sheet
             </button>
@@ -70,7 +70,7 @@ const QuestionPage = () => {
   }
 
   return (
-    <div className="h-screen bg-cover flex flex-col items-start justify-center px-10">
+    <div className="h-screen bg-cover flex items-center justify-center px-10">
       <div className="mt-6 p-8 bg-white rounded-lg shadow-lg w-3/5 text-gray-800">
         <h2 className="text-2xl font-semibold mb-4">
           Question {currentQuestionIndex + 1} of {questions.length}

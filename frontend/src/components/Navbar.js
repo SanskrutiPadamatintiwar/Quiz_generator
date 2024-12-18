@@ -33,10 +33,10 @@ const Navbar = () => {
           <InformationCircleIcon className="h-4 w-6 mr-0" />
           About
         </Link>
-        <li className="flex items-center hover:text-sky-300 transition duration-300 cursor-pointer text-sm">
+        <Link className="flex items-center hover:text-sky-300 transition duration-300 cursor-pointer text-sm" to="/contact">
           <PhoneIcon className="h-4 w-6 mr-0" />
           Contact
-        </li>
+        </Link>
         {isLoggedIn && (
           <button 
             onClick={handleLogout} 
