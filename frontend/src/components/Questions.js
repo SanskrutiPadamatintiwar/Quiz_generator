@@ -8,35 +8,41 @@ const QuestionPage = () => {
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [score, setScore] = useState(0);
   const [quizComplete, setQuizComplete] = useState(false);
+  const [userAnswers, setUserAnswers] = useState([]);
 
   const questions = state?.questions || [];
 
-  const handleNextQuestion = () => {
-    if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
-      setSelectedAnswer('');
-    }
-  };
-
   const handleAnswerSubmit = () => {
     const correctAnswer = questions[currentQuestionIndex]?.correct_answer;
-
+  
     if (!correctAnswer) {
       console.error(`Question ${currentQuestionIndex + 1} has no valid 'correct_answer' field.`);
       return;
     }
-
+  
+    // Record the user's answer
+    setUserAnswers((prevAnswers) => [
+      ...prevAnswers,
+      {
+        question: questions[currentQuestionIndex]?.question,
+        userAnswer: selectedAnswer,
+        correctAnswer: correctAnswer,
+      },
+    ]);
+  
+    // Increment score if the answer is correct
     if (selectedAnswer === correctAnswer) {
-      setScore((prev) => prev + 1);
+      setScore((prevScore) => prevScore + 1); // Correctly update the score
     }
-
+  
     if (currentQuestionIndex < questions.length - 1) {
-      setCurrentQuestionIndex((prev) => prev + 1);
-      setSelectedAnswer('');
+      setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setSelectedAnswer(''); // Reset selected answer for the next question
     } else {
       setQuizComplete(true); // Mark the quiz as complete
     }
   };
+  
 
   if (quizComplete) {
     return (
@@ -44,12 +50,20 @@ const QuestionPage = () => {
         <div className="w-3/5 p-8 bg-white rounded-lg shadow-lg text-center">
           <h2 className="text-2xl font-semibold mb-4">Quiz Completed</h2>
           <p className="text-lg">Your score is: {score} / {questions.length}</p>
-          <button
-            onClick={() => navigate('/')}
-            className="mt-4 px-4 py-2 bg-sky-700 text-white rounded-lg"
-          >
-            Go Home
-          </button>
+          <div className="flex justify-center mt-4 space-x-4">
+            <button
+              onClick={() => navigate('/')}
+              className="px-4 py-2 bg-sky-700 text-white rounded-lg"
+            >
+              Go Home
+            </button>
+            <button
+              onClick={() => navigate('/response-sheet', { state: { userAnswers } })}
+              className="px-4 py-2 bg-indigo-600 text-white rounded-lg"
+            >
+              View Response Sheet
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -81,7 +95,7 @@ const QuestionPage = () => {
                 </label>
               </div>
             ))
-          ) :questions[currentQuestionIndex]?.type === 'true/false' ? (
+          ) : questions[currentQuestionIndex]?.type === 'true/false' ? (
             <div className="flex flex-col space-y-4">
               <div>
                 <input
@@ -110,7 +124,7 @@ const QuestionPage = () => {
                 </label>
               </div>
             </div>
-          ): questions[currentQuestionIndex]?.type === 'fill-in-the-blank' ? (
+          ) : questions[currentQuestionIndex]?.type === 'fill-in-the-blank' ? (
             <input
               type="text"
               placeholder="Type your answer here"
@@ -149,11 +163,9 @@ const QuestionPage = () => {
             {currentQuestionIndex === questions.length - 1 ? "Submit" : "Next Question"}
           </button>
         </div>
-
       </div>
     </div>
   );
-  
 };
 
 export default QuestionPage;
