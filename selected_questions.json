@@ -1,14 +1,36 @@
 [
     {
         "type": "multiple-choice",
-        "question": "Which version of Java introduced default methods in interfaces?",
+        "question": "In Java, what must a class that implements an interface do?",
         "options": {
-            "a": "Java 7",
-            "b": "Java 8",
-            "c": "Java 9",
-            "d": "Java 10"
+            "a": "Implement all default methods",
+            "b": "Implement all non-default methods",
+            "c": "Override all interface methods with its own methods",
+            "d": "Provide an implementation for all methods, whether default or not"
         },
-        "correct_answer": "Java 8"
+        "correct_answer": "Implement all non-default methods"
+    },
+    {
+        "type": "multiple-choice",
+        "question": "How many types of methods can a Java interface have as of the latest versions mentioned in the context?",
+        "options": {
+            "a": "Up to six",
+            "b": "Exactly two",
+            "c": "Unlimited",
+            "d": "Only abstract methods"
+        },
+        "correct_answer": "Up to six"
+    },
+    {
+        "type": "multiple-choice",
+        "question": "What is a key benefit of using interfaces in Java?",
+        "options": {
+            "a": "They allow for multiple inheritance of classes",
+            "b": "They can contain method bodies",
+            "c": "They simulate multiple inheritance",
+            "d": "They define a default implementation"
+        },
+        "correct_answer": "They simulate multiple inheritance"
     },
     {
         "type": "multiple-choice",
@@ -23,17 +45,6 @@
     },
     {
         "type": "multiple-choice",
-        "question": "What is an interface in Java used to declare?",
-        "options": {
-            "a": "A specific class implementation",
-            "b": "A behavior that classes must implement",
-            "c": "The main method of a program",
-            "d": "A default method implementation"
-        },
-        "correct_answer": "A behavior that classes must implement"
-    },
-    {
-        "type": "multiple-choice",
         "question": "If a Java object implements the `Comparable` interface, what can be said about it?",
         "options": {
             "a": "It can only be sorted by its own class",
@@ -42,16 +53,5 @@
             "d": "It must be a primitive type"
         },
         "correct_answer": "It can be sorted in some way"
-    },
-    {
-        "type": "multiple-choice",
-        "question": "What is a key benefit of using interfaces in Java?",
-        "options": {
-            "a": "They allow for multiple inheritance of classes",
-            "b": "They can contain method bodies",
-            "c": "They simulate multiple inheritance",
-            "d": "They define a default implementation"
-        },
-        "correct_answer": "They simulate multiple inheritance"
     }
 ]

@@ -45,14 +45,14 @@ const Login = () => {
   return (
     <div
       className="flex items-center justify-center min-h-screen"
-      style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
+      // style={{
+      //   backgroundImage: `url(${backgroundImage})`,
+      //   backgroundSize: 'cover',
+      //   backgroundPosition: 'center',
+      // }}
     >
       <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-md bg-opacity-80">
-        <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">QUIZ APP</h1>
+        {/* <h1 className="text-4xl font-extrabold text-center text-gray-800 mb-6">QUIZ APP</h1> */}
         <h2 className="text-3xl font-bold mb-6 text-center text-gray-800">{isSignup ? 'Sign Up' : 'Log In'}</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
