@@ -10,7 +10,9 @@ import Contact from "./components/Contact";
 import Questions from "./components/Questions";
 import Login from "./components/login";
 import Signup from "./components/Signup";
-import ResponeSheet from "./components/ResponseSheet"
+import ResponeSheet from "./components/ResponseSheet";
+import AllQuestionsPage from './components/AllQuestionsPage';
+
 
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
@@ -41,8 +43,8 @@ function App() {
             <Route path="/contact" element={<Contact />}/>
             <Route path="/questions" element={<Questions />} />
             <Route path="/response-sheet" element={<ResponeSheet />} />
-            {/* <Route path="/generated-questions" element={<GeneratedQuestionsPage />} /> */}
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="/all-questions" element={<AllQuestionsPage />} />
+            <Route path="/contact" element={<Contact />} />
           </>
         ) : (
           <>
