@@ -1,6 +1,7 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useHistory,useNavigate } from 'react-router-dom';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
+import { DownloadIcon } from '@heroicons/react/outline';
 
 // Custom function to wrap text
 const wrapText = (text, font, fontSize, maxWidth) => {
@@ -129,6 +130,7 @@ const downloadQuestionsAsPDF = async (questions) => {
 };
 
 const QuestionsPage = () => {
+  const navigate=useNavigate();
   const location = useLocation();
   const { questions } = location.state || {}; // Get questions from navigation state
 
@@ -159,13 +161,20 @@ const QuestionsPage = () => {
           </li>
         ))}
       </ul>
-      <div className="text-center mt-6">
+      <div className="text-center mt-6 flex justify-end space-x-4">
         <button
           onClick={() => downloadQuestionsAsPDF(questions)}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="w-50 px-4 py-2 bg-sky-900 hover:bg-sky-950 rounded-full text-white font-semibold transition duration-300 flex items-center justify-center"
         >
-          Download Questions and Answers as PDF
+          <DownloadIcon className="h-4 w-4 mr-2" />
+          Download
         </button>
+        <button
+            onClick={() => navigate('/')}
+          className="w-50 px-4 py-2 bg-sky-900 hover:bg-sky-950 rounded-full text-white font-semibold transition duration-300 flex items-center justify-center"
+          >
+            Go Home
+          </button>
       </div>
     </div>
   );

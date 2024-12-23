@@ -1,36 +1,25 @@
 [
     {
         "type": "multiple-choice",
-        "question": "Starting with which version of Java were default methods allowed in interfaces?",
+        "question": "Can a Java class have multiple base classes?",
         "options": {
-            "a": "Java 5",
-            "b": "Java 7",
-            "c": "Java 8",
-            "d": "Java 9"
+            "a": "Yes",
+            "b": "No, with some exceptions",
+            "c": "No, Java only supports single inheritance",
+            "d": "Yes, but only if the classes are interfaces"
         },
-        "correct_answer": "Java 8"
+        "correct_answer": "No, with some exceptions"
     },
     {
         "type": "multiple-choice",
-        "question": "What must a Java class do if it implements an interface?",
+        "question": "What is the maximum number of different types a Java interface can have as of the latest versions?",
         "options": {
-            "a": "Implement all of the interface's non-default methods",
-            "b": "Implement at least one non-default method",
-            "c": "Implement all of the interface's default methods",
-            "d": "No need to implement anything"
+            "a": "Four",
+            "b": "Five",
+            "c": "Six",
+            "d": "Unlimited"
         },
-        "correct_answer": "Implement all of the interface's non-default methods"
-    },
-    {
-        "type": "multiple-choice",
-        "question": "Can a Java interface contain method bodies?",
-        "options": {
-            "a": "Yes, in all versions",
-            "b": "No, in all versions except Java 8 and above",
-            "c": "Yes, but only in Java 9 and above",
-            "d": "No, interfaces are fully implemented"
-        },
-        "correct_answer": "No, in all versions except Java 8 and above"
+        "correct_answer": "Six"
     },
     {
         "type": "multiple-choice",
@@ -45,13 +34,24 @@
     },
     {
         "type": "multiple-choice",
-        "question": "What is the maximum number of different types a Java interface can have as of the latest versions?",
+        "question": "What keyword is used to declare an interface in Java?",
         "options": {
-            "a": "Four",
-            "b": "Five",
-            "c": "Six",
-            "d": "Unlimited"
+            "a": "class",
+            "b": "abstract",
+            "c": "interface",
+            "d": "final"
         },
-        "correct_answer": "Six"
+        "correct_answer": "interface"
+    },
+    {
+        "type": "multiple-choice",
+        "question": "If an object implements the interface 'Comparable', what can it guarantee about the object?",
+        "options": {
+            "a": "The object can be sorted",
+            "b": "The object has a 'compareTo' method",
+            "c": "The object can be null",
+            "d": "Both a) and b)"
+        },
+        "correct_answer": "Both a) and b)"
     }
 ]
