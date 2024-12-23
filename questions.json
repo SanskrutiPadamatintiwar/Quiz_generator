@@ -12,90 +12,101 @@
     },
     {
         "type": "multiple-choice",
-        "question": "What is an interface in Java used to declare?",
+        "question": "What does geography primarily study in relation to places?",
         "options": {
-            "a": "A specific class implementation",
-            "b": "A behavior that classes must implement",
-            "c": "The main method of a program",
-            "d": "A default method implementation"
+            "a": "The economic value of places",
+            "b": "The spatial phenomena and complex relationships between locations",
+            "c": "The political governance of different territories",
+            "d": "The industrial development of urban areas"
         },
-        "correct_answer": "A behavior that classes must implement"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "In Java, can interfaces be instantiated?",
+        "question": "According to Yi - Fu Tuan, what is central to the discipline of geography?",
         "options": {
-            "a": "Yes, they can be instantiated like classes",
-            "b": "No, they can only be implemented by classes",
-            "c": "Yes, but only in Java 8 and above",
-            "d": "No, but they can have instance variables"
+            "a": "The distribution of natural resources",
+            "b": "The study of earth as a home for humanity, focusing on place and its meanings",
+            "c": "The cultural practices of indigenous populations",
+            "d": "The technological advancements in geographical information systems"
         },
-        "correct_answer": "No, they can only be implemented by classes"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "Which version of Java introduced default methods in interfaces?",
+        "question": "In geography, how is time related to spatial movement?",
         "options": {
-            "a": "Java 7",
-            "b": "Java 8",
-            "c": "Java 9",
-            "d": "Java 10"
+            "a": "Time only refers to historical events and is not related to spatial movement.",
+            "b": "Time is an irrelevant factor in geographical studies.",
+            "c": "Time facilitates movement through space and is essential for understanding dynamic spatial relationships.",
+            "d": "Time is a static concept and does not influence spatial dynamics."
         },
-        "correct_answer": "Java 8"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "How many types of methods can a Java interface have as of the latest versions mentioned in the context?",
+        "question": "What is scale in geography?",
         "options": {
-            "a": "Up to six",
-            "b": "Exactly two",
-            "c": "Unlimited",
-            "d": "Only abstract methods"
+            "a": "The size of the Earth's surface",
+            "b": "The ratio between a distance measured on a map and the corresponding distance on the ground",
+            "c": "The number of people living in a place",
+            "d": "The political boundaries between countries"
         },
-        "correct_answer": "Up to six"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "What is a key benefit of using interfaces in Java?",
+        "question": "What was a significant shift in geography during the quantitative revolution?",
         "options": {
-            "a": "They allow for multiple inheritance of classes",
-            "b": "They can contain method bodies",
-            "c": "They simulate multiple inheritance",
-            "d": "They define a default implementation"
+            "a": "From qualitative to purely theoretical approaches",
+            "b": "From a descriptive to an empirical, law-making (nomothetic) approach",
+            "c": "From an environmental focus to an economic focus",
+            "d": "From physical geography to human geography only"
         },
-        "correct_answer": "They simulate multiple inheritance"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "In Java, what must a class that implements an interface do?",
+        "question": "Which of the following has been proposed as laws of geography?",
         "options": {
-            "a": "Implement all default methods",
-            "b": "Implement all non-default methods",
-            "c": "Override all interface methods with its own methods",
-            "d": "Provide an implementation for all methods, whether default or not"
+            "a": "Kepler's laws",
+            "b": "Newton's laws",
+            "c": "Tobler's laws",
+            "d": "Einstein's theories"
         },
-        "correct_answer": "Implement all non-default methods"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "What kind of object references in Java may be specified to be of an interface type?",
+        "question": "What challenge does visualizing time over space present in cartography?",
         "options": {
-            "a": "Only concrete class instances",
-            "b": "Only abstract class instances",
-            "c": "Only references to null or implementing objects",
-            "d": "Only references to the java.lang.Object class"
+            "a": "It is always accurately represented on maps",
+            "b": "It is challenging due to the need for advanced 3D geovisualizations and animations",
+            "c": "It does not require any special visualization techniques",
+            "d": "It is only possible through satellite imagery"
         },
-        "correct_answer": "Only references to null or implementing objects"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "If a Java object implements the `Comparable` interface, what can be said about it?",
+        "question": "Waldo Tobler is known for proposing which of the following concepts in geography?",
         "options": {
-            "a": "It can only be sorted by its own class",
-            "b": "It can be sorted in some way",
-            "c": "It has a main method",
-            "d": "It must be a primitive type"
+            "a": "The law of gravity",
+            "b": "The laws of geography",
+            "c": "The theory of plate tectonics",
+            "d": "The principles of cartography"
         },
-        "correct_answer": "It can be sorted in some way"
+        "correct_answer": ""
+    },
+    {
+        "type": "multiple-choice",
+        "question": "The concept of 'place' in geography includes which of the following aspects?",
+        "options": {
+            "a": "Only the physical characteristics of a location",
+            "b": "Spatial phenomena, human interactions, and impacts on and from other locations",
+            "c": "The historical significance of a location",
+            "d": "The exclusively economic activities of a location"
+        },
+        "correct_answer": ""
     }
 ]

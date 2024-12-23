@@ -6,12 +6,16 @@ import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import QuizPage from "./components/QuizPage";
 import AboutUs from "./components/AboutUs";
+import Contact from "./components/Contact";
 import Questions from "./components/Questions";
 import Login from "./components/login";
 import Signup from "./components/Signup";
 import ResponeSheet from "./components/ResponseSheet"
+
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -20,35 +24,29 @@ function App() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    alert("Logged out successfully");
+    toast.success("Logged out successfully");
     navigate('/login');
   };
 
   return (
-    // <div className="bg-no-repeat bg-cover bg-center min-h-screen relative flex flex-col " style={{ backgroundImage: `url(${qimg})` }}>
     <div className="bg-gradient-to-br from-slate-950 via-slate-800 to-slate-950 min-h-screen flex flex-col relative z-20">
       {isLoggedIn && <Navbar />}
-      {/* {isLoggedIn && (
-        <button 
-          onClick={handleLogout} 
-          className="absolute top-4 right-20 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-        >
-          Logout
-        </button> */}
-      {/* )} */}
+      <ToastContainer />
       <Routes>
         {isLoggedIn ? (
           <>
             <Route path="/" element={<Home />} />
             <Route path="/quiz" element={<QuizPage />} />
             <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />}/>
             <Route path="/questions" element={<Questions />} />
-            <Route path="*" element={<Navigate to="/" />} />
             <Route path="/response-sheet" element={<ResponeSheet />} />
+            {/* <Route path="/generated-questions" element={<GeneratedQuestionsPage />} /> */}
+            <Route path="*" element={<Navigate to="/" />} />
           </>
         ) : (
           <>
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login onLogin={() => toast.success("Logged in successfully")} />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="*" element={<Navigate to="/login" />} />
           </>

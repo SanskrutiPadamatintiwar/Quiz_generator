@@ -53,13 +53,13 @@ const QuestionPage = () => {
           <div className="flex justify-center mt-4 space-x-4">
             <button
               onClick={() => navigate('/')}
-              className="px-4 py-2 bg-sky-700 text-white rounded-lg"
+              className="px-4 py-2 rounded-full font-semibold transition duration-300 bg-sky-900 text-white hover:bg-sky-950"
             >
               Go Home
             </button>
             <button
               onClick={() => navigate('/response-sheet', { state: { userAnswers } })}
-              className="px-4 py-2 bg-sky-700 text-white rounded-lg"
+              className="px-4 py-2 rounded-full font-semibold transition duration-300 bg-sky-900 text-white hover:bg-sky-950"
             >
               View Response Sheet
             </button>

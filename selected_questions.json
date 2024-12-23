@@ -1,57 +1,57 @@
 [
     {
         "type": "multiple-choice",
-        "question": "In Java, what must a class that implements an interface do?",
+        "question": "What challenge does visualizing time over space present in cartography?",
         "options": {
-            "a": "Implement all default methods",
-            "b": "Implement all non-default methods",
-            "c": "Override all interface methods with its own methods",
-            "d": "Provide an implementation for all methods, whether default or not"
+            "a": "It is always accurately represented on maps",
+            "b": "It is challenging due to the need for advanced 3D geovisualizations and animations",
+            "c": "It does not require any special visualization techniques",
+            "d": "It is only possible through satellite imagery"
         },
-        "correct_answer": "Implement all non-default methods"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "How many types of methods can a Java interface have as of the latest versions mentioned in the context?",
+        "question": "The concept of 'place' in geography includes which of the following aspects?",
         "options": {
-            "a": "Up to six",
-            "b": "Exactly two",
-            "c": "Unlimited",
-            "d": "Only abstract methods"
+            "a": "Only the physical characteristics of a location",
+            "b": "Spatial phenomena, human interactions, and impacts on and from other locations",
+            "c": "The historical significance of a location",
+            "d": "The exclusively economic activities of a location"
         },
-        "correct_answer": "Up to six"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "What is a key benefit of using interfaces in Java?",
+        "question": "What was a significant shift in geography during the quantitative revolution?",
         "options": {
-            "a": "They allow for multiple inheritance of classes",
-            "b": "They can contain method bodies",
-            "c": "They simulate multiple inheritance",
-            "d": "They define a default implementation"
+            "a": "From qualitative to purely theoretical approaches",
+            "b": "From a descriptive to an empirical, law-making (nomothetic) approach",
+            "c": "From an environmental focus to an economic focus",
+            "d": "From physical geography to human geography only"
         },
-        "correct_answer": "They simulate multiple inheritance"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "What kind of object references in Java may be specified to be of an interface type?",
+        "question": "What does geography primarily study in relation to places?",
         "options": {
-            "a": "Only concrete class instances",
-            "b": "Only abstract class instances",
-            "c": "Only references to null or implementing objects",
-            "d": "Only references to the java.lang.Object class"
+            "a": "The economic value of places",
+            "b": "The spatial phenomena and complex relationships between locations",
+            "c": "The political governance of different territories",
+            "d": "The industrial development of urban areas"
         },
-        "correct_answer": "Only references to null or implementing objects"
+        "correct_answer": ""
     },
     {
         "type": "multiple-choice",
-        "question": "If a Java object implements the `Comparable` interface, what can be said about it?",
+        "question": "Waldo Tobler is known for proposing which of the following concepts in geography?",
         "options": {
-            "a": "It can only be sorted by its own class",
-            "b": "It can be sorted in some way",
-            "c": "It has a main method",
-            "d": "It must be a primitive type"
+            "a": "The law of gravity",
+            "b": "The laws of geography",
+            "c": "The theory of plate tectonics",
+            "d": "The principles of cartography"
         },
-        "correct_answer": "It can be sorted in some way"
+        "correct_answer": ""
     }
 ]

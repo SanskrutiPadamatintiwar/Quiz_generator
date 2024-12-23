@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { login } from '../communicators/apicommunicators';
+import { login, signup } from '../communicators/apicommunicators'; // Import signup function
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import backgroundImage from '../assets/image.jpg'; // Update the path to match your image location
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -26,20 +28,38 @@ const Login = () => {
         const response = await login(formData);
         if (response?.status === 200) {
           localStorage.setItem("token", response.data.data);
-          alert("Logged in successfully");
+          if (!toast.isActive("login-success")) {
+            toast.success("Logged in successfully", { toastId: "login-success" });
+          }
+          onLogin();
           navigate('/');
         } else {
-          alert(response?.data?.message || "Login failed. Please try again.");
+          toast.error(response?.data?.message || "Login failed. Please try again.");
         }
       } catch (error) {
         console.error('Error:', error);
-        alert("An error occurred during login.");
+        toast.error("An error occurred during login.");
+      }
+    } else {
+      try {
+        const response = await signup(formData);
+        if (response?.status === 200) {
+          toast.success("Signed up successfully");
+          setIsSignup(false);
+        } else {
+          toast.error(response?.data?.message || "Signup failed. Please try again.");
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        toast.error("An error occurred during signup.");
       }
     }
   };
 
   const toggleForm = () => {
+    // setIsSignup(!isSignup);
     navigate('/signup');
+
   };
 
   return (

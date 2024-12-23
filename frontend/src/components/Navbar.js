@@ -9,7 +9,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    alert("Logged out successfully");
+    // alert("Logged out successfully");
     navigate('/login');
   };
 
