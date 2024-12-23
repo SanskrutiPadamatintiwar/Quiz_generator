@@ -3,7 +3,7 @@ import { useLocation, useHistory,useNavigate } from 'react-router-dom';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import { DownloadIcon } from '@heroicons/react/outline';
 
-// Custom function to wrap text
+// Custom function to wrap text to fit within a certain width
 const wrapText = (text, font, fontSize, maxWidth) => {
   const words = text.split(' ');
   let lines = [];
