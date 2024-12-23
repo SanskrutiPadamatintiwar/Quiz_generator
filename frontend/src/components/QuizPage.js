@@ -12,8 +12,8 @@ const QuizPage = () => {
   const [pdfFile, setPdfFile] = useState(null);
   const [questions, setQuestions] = useState([]);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [isLoading, setIsLoading] = useState(false); 
+  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [loadingButton, setLoadingButton] = useState(null);
   const navigate = useNavigate();
 
   const handleFileChange = (e) => {
@@ -31,7 +31,20 @@ const QuizPage = () => {
     }
   };
 
-  const handleSubmit = async (e) => {
+  const handlePrevQuestion = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+  const handleAnswerChange = (option) => {
+    setSelectedAnswers((prev) => ({
+      ...prev,
+      [currentQuestionIndex]: option,
+    }));
+  };
+
+  const handleSubmit = async (e, buttonType) => {
     e.preventDefault();
 
     if (mode === 'topic' && !topic.trim()) {
@@ -55,25 +68,34 @@ const QuizPage = () => {
     formData.append('numQuestions', parseInt(numQuestions, 10));
     if (mode === 'topic') formData.append('topic', topic);
     if (mode === 'file') formData.append('file', pdfFile);
-    setIsLoading(true);
+
+    setLoadingButton(buttonType);
     try {
       const response = await axios.post(`${API_BASE_URL}/start-quiz`, formData);
 
       if (response.status === 200) {
-        navigate('/questions', { state: { questions: response.data.questions } });
+        if (buttonType === 'getQuestions') {
+          navigate('/questions', { state: { questions: response.data.questions } });
+        } else if (buttonType === 'attemptQuiz') {
+          navigate('/all-questions', { state: { questions: response.data.questions } });
+        }
+        setQuestions(response.data.questions);
+        setLoadingButton(null);
       } else {
         console.error('Failed to fetch questions');
+        setLoadingButton(null);
       }
     } catch (error) {
       console.error('Error:', error);
       alert('Something went wrong. Please try again.');
+      setLoadingButton(null);
     }
   };
 
   return (
     <div className="h-screen bg-cover flex items-center justify-center px-10">
       <form
-        onSubmit={handleSubmit}
+        onSubmit={(e) => handleSubmit(e, 'getQuestions')}
         className="w-3/5 p-8 bg-opacity-90 bg-white rounded-lg shadow-lg"
       >
         <div className="mb-4">
@@ -153,14 +175,24 @@ const QuizPage = () => {
             required
           />
         </div>
-
-        <button
-          type="submit"
-           className="mt-4 w-full px-4 py-2 bg-sky-900 hover:bg-sky-950 rounded-full text-white font-semibold transition duration-300"
-          disabled={isLoading}
-        >
-          {isLoading ? 'Loading...' : 'Get Questions'}
-        </button>
+        <div className="flex justify-between space-x-4 mt-4">
+          <button
+            type="button"
+            onClick={(e) => handleSubmit(e, 'getQuestions')}
+            className="w-full px-4 py-2 bg-sky-900 hover:bg-sky-950 rounded-full text-white font-semibold transition duration-300"
+            disabled={loadingButton === 'getQuestions'}
+          >
+            {loadingButton === 'getQuestions' ? 'Loading...' : 'Get Questions'}
+          </button>
+          <button
+            type="button"
+            onClick={(e) => handleSubmit(e, 'attemptQuiz')}
+            className="w-full px-4 py-2 bg-sky-900 hover:bg-sky-950 rounded-full text-white font-semibold transition duration-300"
+            disabled={loadingButton === 'attemptQuiz'}
+          >
+            {loadingButton === 'attemptQuiz' ? 'Loading...' : 'Attempt Quiz'}
+          </button>
+        </div>
       </form>
 
       {questions.length > 0 && (
@@ -175,8 +207,8 @@ const QuizPage = () => {
                   id={`option-${key}`}
                   name="answer"
                   value={option}
-                  checked={selectedAnswer === option}
-                  onChange={(e) => setSelectedAnswer(e.target.value)}
+                  checked={selectedAnswers[currentQuestionIndex] === option}
+                  onChange={() => handleAnswerChange(option)}
                 />
                 <label htmlFor={`option-${key}`} className="ml-2">
                   {option}
@@ -184,14 +216,24 @@ const QuizPage = () => {
               </div>
             ))}
           </div>
-          {currentQuestionIndex < questions.length - 1 && (
-            <button
-              onClick={handleNextQuestion}
-              className="mt-4 bg-sky-700 hover:bg-sky-800 text-white py-2 px-6 rounded-lg transition duration-300"
-            >
-              Next Question
-            </button>
-          )}
+          <div className="flex justify-between mt-4">
+            {currentQuestionIndex > 0 && (
+              <button
+                onClick={handlePrevQuestion}
+                className="bg-sky-700 hover:bg-sky-800 text-white py-2 px-6 rounded-lg transition duration-300"
+              >
+                Previous Question
+              </button>
+            )}
+            {currentQuestionIndex < questions.length - 1 && (
+              <button
+                onClick={handleNextQuestion}
+                className="bg-sky-700 hover:bg-sky-800 text-white py-2 px-6 rounded-lg transition duration-300"
+              >
+                Next Question
+              </button>
+            )}
+          </div>
         </div>
       )}
     </div>
