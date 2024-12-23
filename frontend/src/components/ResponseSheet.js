@@ -7,41 +7,45 @@ const ResponseSheet = () => {
   const { userAnswers = [] } = state || {};
 
   return (
-    <div className="h-screen bg-cover flex items-center justify-center px-10">
-      <div className="w-full max-w-3xl p-6 bg-white rounded-lg shadow-lg overflow-y-auto max-h-[80vh]">
-        <h2 className="text-2xl font-semibold mb-4 text-center">Response Sheet</h2>
-
-        {/* Scrollable Box */}
-        <div className="overflow-y-auto max-h-96 p-4 bg-gray-50 rounded-lg shadow-inner">
-          {userAnswers.map((answer, index) => {
-            const isCorrect = answer.userAnswer === answer.correctAnswer;
-            return (
-              <div
-                key={index}
-                className={`p-3 border-b last:border-b-0 ${isCorrect ? 'bg-green-100' : 'bg-red-100'}`}
-              >
-                <p className="text-base font-medium">
-                  Q{index + 1}: {answer.question}
-                </p>
-                <p className="text-sm">
-                  <strong>Your Answer:</strong> {answer.userAnswer}
-                </p>
-                <p className="text-sm">
-                  <strong>Correct Answer:</strong> {answer.correctAnswer}
-                </p>
-              </div>
-            );
-          })}
-        </div>
-
-        <div className="flex justify-center mt-6">
-          <button
-            onClick={() => navigate('/')}
-            className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700"
-          >
-            Go Home
-          </button>
-        </div>
+    <div className="bg-gray-800 text-white p-6">
+      <h1 className="text-3xl font-bold text-center mb-6">Response Sheet</h1>
+      <ul className="space-y-6">
+        {userAnswers.map((answer, index) => {
+          const isCorrect = answer.userAnswer === answer.correctAnswer;
+          return (
+            <li key={index} className="border-b border-gray-600 pb-4">
+              <h3 className="text-xl font-semibold">Question {index + 1}:</h3>
+              <p className="mt-2">{answer.question}</p>
+              {answer.options && (
+                <ul className="list-disc pl-6 mt-2">
+                  {Object.entries(answer.options).map(([key, option], optionIndex) => (
+                    <li key={optionIndex}>
+                      <span className="font-medium">{key.toUpperCase()}:</span> {option}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              <p className="mt-2">
+                <strong>Your Answer: </strong>
+                <span className={isCorrect ? 'text-green-400' : 'text-red-400'}>
+                  {answer.userAnswer}
+                </span>
+              </p>
+              <p className="mt-2">
+                <strong>Correct Answer: </strong>
+                <span className="text-green-400">{answer.correctAnswer}</span>
+              </p>
+            </li>
+          );
+        })}
+      </ul>
+      <div className="text-center mt-6">
+        <button
+          onClick={() => navigate('/')}
+          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400"
+        >
+          Go Home
+        </button>
       </div>
     </div>
   );
