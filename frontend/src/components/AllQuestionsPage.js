@@ -2,10 +2,31 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 
+// Custom function to wrap text
+const wrapText = (text, font, fontSize, maxWidth) => {
+  const words = text.split(' ');
+  let lines = [];
+  let currentLine = '';
+
+  words.forEach(word => {
+    const testLine = currentLine + word + ' ';
+    const testWidth = font.widthOfTextAtSize(testLine, fontSize);
+    if (testWidth > maxWidth && currentLine !== '') {
+      lines.push(currentLine.trim());
+      currentLine = word + ' ';
+    } else {
+      currentLine = testLine;
+    }
+  });
+
+  lines.push(currentLine.trim());
+  return lines;
+};
+
 // Download the questions and answers as a PDF
 const downloadQuestionsAsPDF = async (questions) => {
   const pdfDoc = await PDFDocument.create();
-  const page = pdfDoc.addPage([600, 800]);
+  let page = pdfDoc.addPage([600, 800]);
   const { width, height } = page.getSize();
   
   // Use StandardFonts.Helvetica
@@ -13,6 +34,7 @@ const downloadQuestionsAsPDF = async (questions) => {
   
   let yPosition = height - 40; // Start position for text
   const fontSize = 12;
+  const lineHeight = fontSize + 4; // Line height for text wrapping
   
   // Add Title
   page.drawText('Generated Questions and Answers', {
@@ -26,39 +48,63 @@ const downloadQuestionsAsPDF = async (questions) => {
 
   questions.forEach((question, index) => {
     // Add Question Number and Text
-    page.drawText(`Question ${index + 1}: ${question.question}`, {
-      x: 50,
-      y: yPosition,
-      size: fontSize,
-      font,
-      color: rgb(0, 0, 0),
+    const questionText = `Question ${index + 1}: ${question.question}`;
+    const wrappedText = wrapText(questionText, font, fontSize, width - 100);
+    wrappedText.forEach(line => {
+      if (yPosition < 50) {
+        page = pdfDoc.addPage([600, 800]);
+        yPosition = height - 40;
+      }
+      page.drawText(line, {
+        x: 50,
+        y: yPosition,
+        size: fontSize,
+        font,
+        color: rgb(0, 0, 0),
+      });
+      yPosition -= lineHeight;
     });
-    yPosition -= 20;
 
     // Add Options
     if (question.options) {
       Object.entries(question.options).forEach(([key, option]) => {
-        page.drawText(`${key.toUpperCase()}: ${option}`, {
-          x: 50,
-          y: yPosition,
-          size: fontSize,
-          font,
-          color: rgb(0, 0, 0),
+        const optionText = `${key.toUpperCase()}: ${option}`;
+        const wrappedOptionText = wrapText(optionText, font, fontSize, width - 100);
+        wrappedOptionText.forEach(line => {
+          if (yPosition < 50) {
+            page = pdfDoc.addPage([600, 800]);
+            yPosition = height - 40;
+          }
+          page.drawText(line, {
+            x: 50,
+            y: yPosition,
+            size: fontSize,
+            font,
+            color: rgb(0, 0, 0),
+          });
+          yPosition -= lineHeight;
         });
-        yPosition -= 15;
       });
     }
 
     // Add Correct Answer
     if (question.correct_answer) {
-      page.drawText(`Correct Answer: ${question.correct_answer}`, {
-        x: 50,
-        y: yPosition,
-        size: fontSize,
-        font,
-        color: rgb(0, 0.5, 0),  // Green color for correct answer
+      const correctAnswerText = `Correct Answer: ${question.correct_answer}`;
+      const wrappedCorrectAnswerText = wrapText(correctAnswerText, font, fontSize, width - 100);
+      wrappedCorrectAnswerText.forEach(line => {
+        if (yPosition < 50) {
+          page = pdfDoc.addPage([600, 800]);
+          yPosition = height - 40;
+        }
+        page.drawText(line, {
+          x: 50,
+          y: yPosition,
+          size: fontSize,
+          font,
+          color: rgb(0, 0.5, 0),  // Green color for correct answer
+        });
+        yPosition -= lineHeight;
       });
-      yPosition -= 20;
     }
 
     // Add some space between questions
@@ -66,7 +112,7 @@ const downloadQuestionsAsPDF = async (questions) => {
 
     // Avoid text overlapping by checking space
     if (yPosition < 50) {
-      page.addPage([600, 800]);
+      page = pdfDoc.addPage([600, 800]);
       yPosition = height - 40;
     }
   });
