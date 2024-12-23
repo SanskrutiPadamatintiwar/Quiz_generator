@@ -75,9 +75,9 @@ const QuizPage = () => {
 
       if (response.status === 200) {
         if (buttonType === 'getQuestions') {
-          navigate('/questions', { state: { questions: response.data.questions } });
-        } else if (buttonType === 'attemptQuiz') {
           navigate('/all-questions', { state: { questions: response.data.questions } });
+        } else if (buttonType === 'attemptQuiz') {
+          navigate('/questions', { state: { questions: response.data.questions } });
         }
         setQuestions(response.data.questions);
         setLoadingButton(null);
