@@ -1,36 +1,14 @@
 [
     {
         "type": "multiple-choice",
-        "question": "What must a Java class do if it implements an interface?",
+        "question": "Starting with which version of Java were default methods allowed in interfaces?",
         "options": {
-            "a": "Implement all of the interface's non-default methods",
-            "b": "Implement at least one non-default method",
-            "c": "Implement all of the interface's default methods",
-            "d": "No need to implement anything"
+            "a": "Java 5",
+            "b": "Java 7",
+            "c": "Java 8",
+            "d": "Java 9"
         },
-        "correct_answer": "Implement all of the interface's non-default methods"
-    },
-    {
-        "type": "multiple-choice",
-        "question": "If an object implements the interface 'Comparable', what can it guarantee about the object?",
-        "options": {
-            "a": "The object can be sorted",
-            "b": "The object has a 'compareTo' method",
-            "c": "The object can be null",
-            "d": "Both a) and b)"
-        },
-        "correct_answer": "Both a) and b)"
-    },
-    {
-        "type": "multiple-choice",
-        "question": "Can a Java interface contain method bodies?",
-        "options": {
-            "a": "Yes, in all versions",
-            "b": "No, in all versions except Java 8 and above",
-            "c": "Yes, but only in Java 9 and above",
-            "d": "No, interfaces are fully implemented"
-        },
-        "correct_answer": "No, in all versions except Java 8 and above"
+        "correct_answer": "Java 8"
     },
     {
         "type": "multiple-choice",
@@ -45,13 +23,35 @@
     },
     {
         "type": "multiple-choice",
-        "question": "What keyword is used to declare an interface in Java?",
+        "question": "If an object implements the interface 'Comparable', what can it guarantee about the object?",
         "options": {
-            "a": "class",
-            "b": "abstract",
-            "c": "interface",
-            "d": "final"
+            "a": "The object can be sorted",
+            "b": "The object has a 'compareTo' method",
+            "c": "The object can be null",
+            "d": "Both a) and b)"
         },
-        "correct_answer": "interface"
+        "correct_answer": "Both a) and b)"
+    },
+    {
+        "type": "multiple-choice",
+        "question": "What type of methods can be declared in a Java interface from Java 9 onwards?",
+        "options": {
+            "a": "Non-default and static",
+            "b": "Default and private",
+            "c": "Private and private static",
+            "d": "Static and final"
+        },
+        "correct_answer": "Private and private static"
+    },
+    {
+        "type": "multiple-choice",
+        "question": "What must a Java class do if it implements an interface?",
+        "options": {
+            "a": "Implement all of the interface's non-default methods",
+            "b": "Implement at least one non-default method",
+            "c": "Implement all of the interface's default methods",
+            "d": "No need to implement anything"
+        },
+        "correct_answer": "Implement all of the interface's non-default methods"
     }
 ]
