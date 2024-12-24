@@ -1,5 +1,6 @@
 import React from "react";
 import navimg from "../navImg.jpg"; // Use your image or placeholder
+import { GitHubIcon,gmailIcon } from '@heroicons/react/outline';
 
 const ContactPage = () => {
   return (
