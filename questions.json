@@ -12,112 +12,101 @@
     },
     {
         "type": "multiple-choice",
-        "question": "What keyword is used to declare an interface in Java?",
+        "question": "Who has described themselves as the steward of Java technology following Oracle Corporation's acquisition of Sun Microsystems?",
         "options": {
-            "a": "class",
-            "b": "abstract",
-            "c": "interface",
-            "d": "final"
+            "a": "James Gosling",
+            "b": "Google",
+            "c": "Oracle Corporation",
+            "d": "Adoptium"
         },
-        "correct_answer": "interface"
+        "correct_answer": "Oracle Corporation"
     },
     {
         "type": "multiple-choice",
-        "question": "Can a Java interface contain method bodies?",
+        "question": "What was James Gosling's role at Oracle after the acquisition of Sun Microsystems?",
         "options": {
-            "a": "Yes, in all versions",
-            "b": "No, in all versions except Java 8 and above",
-            "c": "Yes, but only in Java 9 and above",
-            "d": "No, interfaces are fully implemented"
+            "a": "Chief Technology Officer",
+            "b": "Evangelist",
+            "c": "Software Engineer",
+            "d": "Java Developer"
         },
-        "correct_answer": "No, in all versions except Java 8 and above"
+        "correct_answer": "Evangelist"
     },
     {
         "type": "multiple-choice",
-        "question": "What is the maximum number of different types a Java interface can have as of the latest versions?",
+        "question": "When did James Gosling resign from Oracle?",
         "options": {
-            "a": "Four",
-            "b": "Five",
-            "c": "Six",
-            "d": "Unlimited"
+            "a": "June 30, 2010",
+            "b": "April 2, 2010",
+            "c": "January 1, 2016",
+            "d": "September 2025"
         },
-        "correct_answer": "Six"
+        "correct_answer": "April 2, 2010"
     },
     {
         "type": "multiple-choice",
-        "question": "What must a Java class do if it implements an interface?",
+        "question": "According to the text, what is one of the primary goals in creating the Java language?",
         "options": {
-            "a": "Implement all of the interface's non-default methods",
-            "b": "Implement at least one non-default method",
-            "c": "Implement all of the interface's default methods",
-            "d": "No need to implement anything"
+            "a": "It must be complex and difficult to learn.",
+            "b": "It must be simple, object-oriented, and familiar.",
+            "c": "It must rely on a single type of architecture.",
+            "d": "It must be interpreted, threaded, and dynamic."
         },
-        "correct_answer": "Implement all of the interface's non-default methods"
+        "correct_answer": "It must be simple, object-oriented, and familiar."
     },
     {
         "type": "multiple-choice",
-        "question": "Can a Java class have multiple base classes?",
+        "question": "As of November 2024, which is NOT listed as a supported long-term support (LTS) version of Java?",
         "options": {
-            "a": "Yes",
-            "b": "No, with some exceptions",
-            "c": "No, Java only supports single inheritance",
-            "d": "Yes, but only if the classes are interfaces"
+            "a": "Java 25",
+            "b": "Java 9",
+            "c": "Java 17",
+            "d": "Java 11"
         },
-        "correct_answer": "No, with some exceptions"
+        "correct_answer": "Java 25"
     },
     {
         "type": "multiple-choice",
-        "question": "What feature of Java interfaces allows them to simulate multiple inheritance?",
+        "question": "What action did Oracle take for the legacy version Java 8 LTS in January 2019?",
         "options": {
-            "a": "Default methods",
-            "b": "Static methods",
-            "c": "Abstract classes",
-            "d": "Both interfaces and abstract classes"
+            "a": "It released a new version.",
+            "b": "It provided the last zero-cost public update for commercial use.",
+            "c": "It discontinued support completely.",
+            "d": "It began charging users for updates."
         },
-        "correct_answer": "Both interfaces and abstract classes"
+        "correct_answer": "It provided the last zero-cost public update for commercial use."
     },
     {
         "type": "multiple-choice",
-        "question": "If an object implements the interface 'Comparable', what can it guarantee about the object?",
+        "question": "Which edition of Java is NOT mentioned as one of Sun's defined editions?",
         "options": {
-            "a": "The object can be sorted",
-            "b": "The object has a 'compareTo' method",
-            "c": "The object can be null",
-            "d": "Both a) and b)"
+            "a": "Java Platform, Micro Edition (Java ME)",
+            "b": "Java Platform, Standard Edition (Java SE)",
+            "c": "Java Platform, Network Edition (Java NE)",
+            "d": "Java Platform, Enterprise Edition (Java EE)"
         },
-        "correct_answer": "Both a) and b)"
+        "correct_answer": "Java Platform, Network Edition (Java NE)"
     },
     {
         "type": "multiple-choice",
-        "question": "Which of the following is a benefit of using interfaces in Java?",
+        "question": "What type of environments does Java software run on according to the context?",
         "options": {
-            "a": "They allow objects to be instantiated directly",
-            "b": "They enforce a class relationship",
-            "c": "They allow objects to be used interchangeably based on implemented interfaces",
-            "d": "They provide a way to implement multiple classes"
+            "a": "Only on laptops and data centers",
+            "b": "Only on game consoles and scientific supercomputers",
+            "c": "On a variety of environments including laptops, data centers, game consoles, and scientific supercomputers",
+            "d": "Exclusively on smart cards and embedded systems"
         },
-        "correct_answer": "They allow objects to be used interchangeably based on implemented interfaces"
+        "correct_answer": "On a variety of environments including laptops, data centers, game consoles, and scientific supercomputers"
     },
     {
         "type": "multiple-choice",
-        "question": "Starting with which version of Java were default methods allowed in interfaces?",
+        "question": "What did Oracle announce about Java Runtime Environments based on JDK 9 in January 2016?",
         "options": {
-            "a": "Java 5",
-            "b": "Java 7",
-            "c": "Java 8",
-            "d": "Java 9"
+            "a": "They would be upgraded with new features.",
+            "b": "They would continue to support all previous versions.",
+            "c": "They would discontinue the browser plugin.",
+            "d": "They would be made open-source."
         },
-        "correct_answer": "Java 8"
-    },
-    {
-        "type": "multiple-choice",
-        "question": "What type of methods can be declared in a Java interface from Java 9 onwards?",
-        "options": {
-            "a": "Non-default and static",
-            "b": "Default and private",
-            "c": "Private and private static",
-            "d": "Static and final"
-        },
-        "correct_answer": "Private and private static"
+        "correct_answer": "They would discontinue the browser plugin."
     }
 ]

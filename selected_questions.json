@@ -1,57 +1,57 @@
 [
     {
         "type": "multiple-choice",
-        "question": "Starting with which version of Java were default methods allowed in interfaces?",
+        "question": "According to the text, what is one of the primary goals in creating the Java language?",
         "options": {
-            "a": "Java 5",
-            "b": "Java 7",
-            "c": "Java 8",
-            "d": "Java 9"
+            "a": "It must be complex and difficult to learn.",
+            "b": "It must be simple, object-oriented, and familiar.",
+            "c": "It must rely on a single type of architecture.",
+            "d": "It must be interpreted, threaded, and dynamic."
         },
-        "correct_answer": "Java 8"
+        "correct_answer": "It must be simple, object-oriented, and familiar."
     },
     {
         "type": "multiple-choice",
-        "question": "What is the maximum number of different types a Java interface can have as of the latest versions?",
+        "question": "What was James Gosling's role at Oracle after the acquisition of Sun Microsystems?",
         "options": {
-            "a": "Four",
-            "b": "Five",
-            "c": "Six",
-            "d": "Unlimited"
+            "a": "Chief Technology Officer",
+            "b": "Evangelist",
+            "c": "Software Engineer",
+            "d": "Java Developer"
         },
-        "correct_answer": "Six"
+        "correct_answer": "Evangelist"
     },
     {
         "type": "multiple-choice",
-        "question": "If an object implements the interface 'Comparable', what can it guarantee about the object?",
+        "question": "As of November 2024, which is NOT listed as a supported long-term support (LTS) version of Java?",
         "options": {
-            "a": "The object can be sorted",
-            "b": "The object has a 'compareTo' method",
-            "c": "The object can be null",
-            "d": "Both a) and b)"
+            "a": "Java 25",
+            "b": "Java 9",
+            "c": "Java 17",
+            "d": "Java 11"
         },
-        "correct_answer": "Both a) and b)"
+        "correct_answer": "Java 25"
     },
     {
         "type": "multiple-choice",
-        "question": "What type of methods can be declared in a Java interface from Java 9 onwards?",
+        "question": "Which edition of Java is NOT mentioned as one of Sun's defined editions?",
         "options": {
-            "a": "Non-default and static",
-            "b": "Default and private",
-            "c": "Private and private static",
-            "d": "Static and final"
+            "a": "Java Platform, Micro Edition (Java ME)",
+            "b": "Java Platform, Standard Edition (Java SE)",
+            "c": "Java Platform, Network Edition (Java NE)",
+            "d": "Java Platform, Enterprise Edition (Java EE)"
         },
-        "correct_answer": "Private and private static"
+        "correct_answer": "Java Platform, Network Edition (Java NE)"
     },
     {
         "type": "multiple-choice",
-        "question": "What must a Java class do if it implements an interface?",
+        "question": "What action did Oracle take for the legacy version Java 8 LTS in January 2019?",
         "options": {
-            "a": "Implement all of the interface's non-default methods",
-            "b": "Implement at least one non-default method",
-            "c": "Implement all of the interface's default methods",
-            "d": "No need to implement anything"
+            "a": "It released a new version.",
+            "b": "It provided the last zero-cost public update for commercial use.",
+            "c": "It discontinued support completely.",
+            "d": "It began charging users for updates."
         },
-        "correct_answer": "Implement all of the interface's non-default methods"
+        "correct_answer": "It provided the last zero-cost public update for commercial use."
     }
 ]

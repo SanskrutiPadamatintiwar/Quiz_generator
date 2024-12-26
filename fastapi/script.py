@@ -21,7 +21,7 @@ CORS(app)  # Enable CORS for all routes
 
 # Hugging Face API Config
 API_TOKEN = "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"  # Replace with your Hugging Face API token
-MODEL_NAME = "microsoft/Phi-3.5-mini-instruct"
+MODEL_NAME = "microsoft/Phi-3.5-mini-instruct"  # Ensure this is a string
 #MODEL_NAME= "t5-base"  # Replace with a valid model, e.g., "gpt2"
 EMBEDDING_MODEL_NAME = "thenlper/gte-small"
 embedding_model = HuggingFaceEmbeddings(
