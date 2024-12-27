@@ -238,7 +238,7 @@ def generate_questions_with_huggingface_api(context, question_type, topic, max_t
 
             # Save to JSON if questions are found
             if formatted_questions:
-                with open('questions.json', 'w') as f:
+                with open('questions.json', 'w',encoding='utf-8') as f:
                     json.dump(formatted_questions, f, ensure_ascii=False, indent=4)
                 print(f"Generated {len(formatted_questions)} questions.")
                 print(formatted_questions)
@@ -259,12 +259,12 @@ def display_quiz(num_questions):
     Loads questions from the JSON file, randomly selects the specified number of questions,
     displays them, and collects answers to compute the score.
     """
-    with open('questions.json', 'r') as f:
+    with open('questions.json', 'r',encoding='utf-8') as f:
         all_questions = json.load(f)
     
     selected_questions = random.sample(all_questions[1:], min(num_questions, len(all_questions)-1))
     # print(selected_questions)
-    with open('selected_questions.json', 'w') as f:
+    with open('selected_questions.json', 'w',encoding='utf-8') as f:
         json.dump(selected_questions, f, ensure_ascii=False, indent=4)
     # score = 0
     # total_questions = len(selected_questions)
