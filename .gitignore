@@ -22,6 +22,7 @@ rag_vector_store/
 wiki_txt/
 pdf_txt/
 
+
 questions.json/
 selected_questions.json/
 prompt.txt/

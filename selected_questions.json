@@ -1,57 +1,57 @@
 [
     {
         "type": "multiple-choice",
-        "question": "According to the text, what is one of the primary goals in creating the Java language?",
+        "question": "What does the whistler interface represent in the given context?",
         "options": {
-            "a": "It must be complex and difficult to learn.",
-            "b": "It must be simple, object-oriented, and familiar.",
-            "c": "It must rely on a single type of architecture.",
-            "d": "It must be interpreted, threaded, and dynamic."
+            "a": "A characteristic of whistling objects, like humans and parrots",
+            "b": "A specific class for whistling sounds",
+            "c": "A method to stop whistling",
+            "d": "A variable holding a whistling sound"
         },
-        "correct_answer": "It must be simple, object-oriented, and familiar."
+        "correct_answer": "A characteristic of whistling objects, like humans and parrots"
     },
     {
         "type": "multiple-choice",
-        "question": "What was James Gosling's role at Oracle after the acquisition of Sun Microsystems?",
+        "question": "What assumption can be made about objects implementing the comparable interface without knowing their specific type?",
         "options": {
-            "a": "Chief Technology Officer",
-            "b": "Evangelist",
-            "c": "Software Engineer",
-            "d": "Java Developer"
+            "a": "They can be sorted",
+            "b": "They can be serialized",
+            "c": "They can be cloned",
+            "d": "They can be deleted"
         },
-        "correct_answer": "Evangelist"
+        "correct_answer": "They can be sorted"
     },
     {
         "type": "multiple-choice",
-        "question": "As of November 2024, which is NOT listed as a supported long-term support (LTS) version of Java?",
+        "question": "Can a Java interface contain method implementations?",
         "options": {
-            "a": "Java 25",
-            "b": "Java 9",
-            "c": "Java 17",
-            "d": "Java 11"
+            "a": "Yes, in all versions",
+            "b": "Yes, but only in Java 8 and later",
+            "c": "No, in all versions",
+            "d": "Yes, but only from Java 9 and later"
         },
-        "correct_answer": "Java 25"
+        "correct_answer": "Yes, but only in Java 8 and later"
     },
     {
         "type": "multiple-choice",
-        "question": "Which edition of Java is NOT mentioned as one of Sun's defined editions?",
+        "question": "What class type must all Java objects be descendants of at a minimum?",
         "options": {
-            "a": "Java Platform, Micro Edition (Java ME)",
-            "b": "Java Platform, Standard Edition (Java SE)",
-            "c": "Java Platform, Network Edition (Java NE)",
-            "d": "Java Platform, Enterprise Edition (Java EE)"
+            "a": "Comparable",
+            "b": "Object",
+            "c": "Whistler",
+            "d": "Interface"
         },
-        "correct_answer": "Java Platform, Network Edition (Java NE)"
+        "correct_answer": "Object"
     },
     {
         "type": "multiple-choice",
-        "question": "What action did Oracle take for the legacy version Java 8 LTS in January 2019?",
+        "question": "What is required for a Java object reference to be specified as of an interface type?",
         "options": {
-            "a": "It released a new version.",
-            "b": "It provided the last zero-cost public update for commercial use.",
-            "c": "It discontinued support completely.",
-            "d": "It began charging users for updates."
+            "a": "The object must implement the interface",
+            "b": "The object must be a static reference",
+            "c": "The object must extend the interface",
+            "d": "The object must be null"
         },
-        "correct_answer": "It provided the last zero-cost public update for commercial use."
+        "correct_answer": "The object must be null"
     }
 ]

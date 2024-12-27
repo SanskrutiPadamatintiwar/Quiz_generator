@@ -12,101 +12,112 @@
     },
     {
         "type": "multiple-choice",
-        "question": "Who has described themselves as the steward of Java technology following Oracle Corporation's acquisition of Sun Microsystems?",
+        "question": "What keyword is used to declare a Java interface?",
         "options": {
-            "a": "James Gosling",
-            "b": "Google",
-            "c": "Oracle Corporation",
-            "d": "Adoptium"
+            "a": "class",
+            "b": "abstract",
+            "c": "interface",
+            "d": "enum"
         },
-        "correct_answer": "Oracle Corporation"
+        "correct_answer": "interface"
     },
     {
         "type": "multiple-choice",
-        "question": "What was James Gosling's role at Oracle after the acquisition of Sun Microsystems?",
+        "question": "Can a Java interface contain method implementations?",
         "options": {
-            "a": "Chief Technology Officer",
-            "b": "Evangelist",
-            "c": "Software Engineer",
-            "d": "Java Developer"
+            "a": "Yes, in all versions",
+            "b": "Yes, but only in Java 8 and later",
+            "c": "No, in all versions",
+            "d": "Yes, but only from Java 9 and later"
         },
-        "correct_answer": "Evangelist"
+        "correct_answer": "Yes, but only in Java 8 and later"
     },
     {
         "type": "multiple-choice",
-        "question": "When did James Gosling resign from Oracle?",
+        "question": "What is the maximum number of different types that a Java interface can have as of the present time?",
         "options": {
-            "a": "June 30, 2010",
-            "b": "April 2, 2010",
-            "c": "January 1, 2016",
-            "d": "September 2025"
+            "a": "Four",
+            "b": "Six",
+            "c": "Eight",
+            "d": "Ten"
         },
-        "correct_answer": "April 2, 2010"
+        "correct_answer": "Six"
     },
     {
         "type": "multiple-choice",
-        "question": "According to the text, what is one of the primary goals in creating the Java language?",
+        "question": "What must a Java class do if it implements an interface?",
         "options": {
-            "a": "It must be complex and difficult to learn.",
-            "b": "It must be simple, object-oriented, and familiar.",
-            "c": "It must rely on a single type of architecture.",
-            "d": "It must be interpreted, threaded, and dynamic."
+            "a": "Implement only the default methods",
+            "b": "Implement all non-default methods",
+            "c": "Implement only the static methods",
+            "d": "It does not have to implement any methods"
         },
-        "correct_answer": "It must be simple, object-oriented, and familiar."
+        "correct_answer": "Implement all non-default methods"
     },
     {
         "type": "multiple-choice",
-        "question": "As of November 2024, which is NOT listed as a supported long-term support (LTS) version of Java?",
+        "question": "What is the main benefit of using interfaces in Java?",
         "options": {
-            "a": "Java 25",
-            "b": "Java 9",
-            "c": "Java 17",
-            "d": "Java 11"
+            "a": "To simulate multiple inheritance",
+            "b": "To reduce code duplication",
+            "c": "To increase memory efficiency",
+            "d": "To simplify the syntax"
         },
-        "correct_answer": "Java 25"
+        "correct_answer": "To simulate multiple inheritance"
     },
     {
         "type": "multiple-choice",
-        "question": "What action did Oracle take for the legacy version Java 8 LTS in January 2019?",
+        "question": "What is required for a Java object reference to be specified as of an interface type?",
         "options": {
-            "a": "It released a new version.",
-            "b": "It provided the last zero-cost public update for commercial use.",
-            "c": "It discontinued support completely.",
-            "d": "It began charging users for updates."
+            "a": "The object must implement the interface",
+            "b": "The object must be a static reference",
+            "c": "The object must extend the interface",
+            "d": "The object must be null"
         },
-        "correct_answer": "It provided the last zero-cost public update for commercial use."
+        "correct_answer": "The object must be null"
     },
     {
         "type": "multiple-choice",
-        "question": "Which edition of Java is NOT mentioned as one of Sun's defined editions?",
+        "question": "What does the whistler interface represent in the given context?",
         "options": {
-            "a": "Java Platform, Micro Edition (Java ME)",
-            "b": "Java Platform, Standard Edition (Java SE)",
-            "c": "Java Platform, Network Edition (Java NE)",
-            "d": "Java Platform, Enterprise Edition (Java EE)"
+            "a": "A characteristic of whistling objects, like humans and parrots",
+            "b": "A specific class for whistling sounds",
+            "c": "A method to stop whistling",
+            "d": "A variable holding a whistling sound"
         },
-        "correct_answer": "Java Platform, Network Edition (Java NE)"
+        "correct_answer": "A characteristic of whistling objects, like humans and parrots"
     },
     {
         "type": "multiple-choice",
-        "question": "What type of environments does Java software run on according to the context?",
+        "question": "What assumption can be made about objects implementing the comparable interface without knowing their specific type?",
         "options": {
-            "a": "Only on laptops and data centers",
-            "b": "Only on game consoles and scientific supercomputers",
-            "c": "On a variety of environments including laptops, data centers, game consoles, and scientific supercomputers",
-            "d": "Exclusively on smart cards and embedded systems"
+            "a": "They can be sorted",
+            "b": "They can be serialized",
+            "c": "They can be cloned",
+            "d": "They can be deleted"
         },
-        "correct_answer": "On a variety of environments including laptops, data centers, game consoles, and scientific supercomputers"
+        "correct_answer": "They can be sorted"
     },
     {
         "type": "multiple-choice",
-        "question": "What did Oracle announce about Java Runtime Environments based on JDK 9 in January 2016?",
+        "question": "What class type must all Java objects be descendants of at a minimum?",
         "options": {
-            "a": "They would be upgraded with new features.",
-            "b": "They would continue to support all previous versions.",
-            "c": "They would discontinue the browser plugin.",
-            "d": "They would be made open-source."
+            "a": "Comparable",
+            "b": "Object",
+            "c": "Whistler",
+            "d": "Interface"
         },
-        "correct_answer": "They would discontinue the browser plugin."
+        "correct_answer": "Object"
+    },
+    {
+        "type": "multiple-choice",
+        "question": "Can Java interfaces include private or private static methods as of Java 9?",
+        "options": {
+            "a": "Yes, both private and private static",
+            "b": "Yes, but only private static",
+            "c": "No, neither private nor private static",
+            "d": "Yes, but only private"
+        },
+        "correct_answer": "Yes, both private and private static"
     }
 ]

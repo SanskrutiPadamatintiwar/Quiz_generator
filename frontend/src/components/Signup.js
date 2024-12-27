@@ -23,7 +23,7 @@ const Signup = () => {
     try {
       const response = await signup(formData);
       if (response?.status === 201) {
-        alert(response.data.message);
+        // alert(response.data.message);
         navigate('/login');
       } else {
         alert("Signup failed. Please try again.");

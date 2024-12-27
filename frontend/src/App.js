@@ -31,30 +31,44 @@ function App() {
   };
 
   return (
-    <div className="bg-gradient-to-br from-slate-950 via-slate-800 to-slate-950 min-h-screen flex flex-col relative z-20">
-      {isLoggedIn && <Navbar />}
-      <ToastContainer />
-      <Routes>
-        {isLoggedIn ? (
-          <>
-            <Route path="/" element={<Home />} />
-            <Route path="/quiz" element={<QuizPage />} />
-            <Route path="/about" element={<AboutUs />} />
-            <Route path="/contact" element={<Contact />}/>
-            <Route path="/questions" element={<Questions />} />
-            <Route path="/response-sheet" element={<ResponeSheet />} />
-            <Route path="/all-questions" element={<AllQuestionsPage />} />
-            <Route path="/contact" element={<Contact />} />
-          </>
-        ) : (
-          <>
-            <Route path="/login" element={<Login onLogin={() => toast.success("Logged in successfully")} />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="*" element={<Navigate to="/login" />} />
-          </>
-        )}
-      </Routes>
-    </div>
+    
+      <div className="bg-gradient-to-br from-slate-950 via-slate-800 to-slate-950 min-h-screen flex flex-col relative z-20">
+        {isLoggedIn && <Navbar />}
+        <ToastContainer
+        position="bottom-right" 
+        autoClose={5000} 
+        hideProgressBar={false} 
+        newestOnTop={false} 
+        closeOnClick 
+        rtl={false} 
+        pauseOnFocusLoss 
+        draggable 
+        pauseOnHover 
+        style={{ width: "250px" }} />
+        <Routes>
+          {isLoggedIn ? (
+            <>
+              <Route path="/" element={<Home />} />
+              <Route path="/quiz" element={<QuizPage />} />
+              <Route path="/about" element={<AboutUs />} />
+              <Route path="/contact" element={<Contact />}/>
+              <Route path="/questions" element={<Questions />} />
+              <Route path="/response-sheet" element={<ResponeSheet />} />
+              <Route path="/all-questions" element={<AllQuestionsPage />} />
+              <Route path="/contact" element={<Contact />} />
+            </>
+          ) : (
+            <>
+             
+              {/* <Route path="/login" element={<Login />} /> */}
+              <Route path="/login" element={<Login onLogin={() => toast.success("Logged in successfully")} />} />
+              <Route path="/signup" element={<Signup onSignup={() => toast.success("Signed up successfully")} />} />
+              <Route path="*" element={<Navigate to="/login" />} />
+            </>
+          )}
+        </Routes>
+      </div>
+    
   );
 }
 
